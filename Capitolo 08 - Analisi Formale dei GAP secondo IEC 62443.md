@@ -1,12 +1,12 @@
 # Industrial Test Bench System
 
-## IEC 62443 Formal GAP Analysis Report
+## Analisi Formale dei GAP secondo IEC 62443
 
-### AS-IS vs Target Security Level (SL2)
+### Rapporto di Valutazione del GAP AS-IS rispetto al Security Level Target (SL2)
 
 ------------------------------------------------------------------------
 
-# 1. Purpose of the Document
+# 1. Scopo del Documento
 
 This document provides a formal GAP Analysis of the current AS-IS
 industrial test bench architecture against the requirements of IEC
@@ -27,7 +27,7 @@ methodology.
 
 ------------------------------------------------------------------------
 
-# 2. Explanation of Key IEC 62443 Terms
+# 2. Spiegazione dei Termini Chiave di IEC 62443
 
 For clarity, the following abbreviations are used in this report:
 
@@ -62,9 +62,9 @@ The seven FR categories are:
 
 ------------------------------------------------------------------------
 
-# 3. System Definition (IEC 62443-3-2)
+# 3. Definizione del Sistema (IEC 62443-3-2)
 
-## 3.1 Identified Assets (AS-IS)
+## 3.1 Asset Identificati (AS-IS)
 
 -   PLC (Siemens S7-1200)
 -   Local HMI
@@ -79,7 +79,7 @@ configuration.
 
 ------------------------------------------------------------------------
 
-## 3.2 Preliminary Zone Model (Conceptual)
+## 3.2 Modello Preliminare di Zone (Concettuale)
 
 Zone Z1 -- Basic Control Zone\
 - PLC\
@@ -105,7 +105,7 @@ No logical conduits or segmentation are formally defined.
 
 ------------------------------------------------------------------------
 
-# 4. Target Security Level Determination
+# 4. Determinazione del Security Level Target
 
 Based on:
 
@@ -144,7 +144,7 @@ Gap: High
 
 ------------------------------------------------------------------------
 
-## FR2 -- Use Control (UC)
+## FR2 - Controllo d'Uso (UC)
 
 AS-IS: - No role-based access control - No privilege separation
 
@@ -156,7 +156,7 @@ Gap: High
 
 ------------------------------------------------------------------------
 
-## FR3 -- System Integrity (SI)
+## FR3 - Integrità del Sistema (SI)
 
 AS-IS: - No integrity verification - No formal configuration
 management - No controlled update process
@@ -169,7 +169,7 @@ Gap: High
 
 ------------------------------------------------------------------------
 
-## FR4 -- Data Confidentiality (DC)
+## FR4 - Riservatezza dei Dati (DC)
 
 AS-IS: - Data stored in plain CSV - No encryption - Removable media
 uncontrolled
@@ -182,7 +182,7 @@ Gap: Medium
 
 ------------------------------------------------------------------------
 
-## FR5 -- Restricted Data Flow (RDF)
+## FR5 - Flussi di Dati Limitati (RDF)
 
 AS-IS: - No network segmentation - No firewall or conduit control -
 Direct DUT Ethernet access
@@ -195,7 +195,7 @@ Gap: High
 
 ------------------------------------------------------------------------
 
-## FR6 -- Timely Response to Events (TRE)
+## FR6 - Risposta Tempestiva agli Eventi (TRE)
 
 AS-IS: - No security event logging - No monitoring - No incident
 response process
@@ -208,7 +208,7 @@ Gap: High
 
 ------------------------------------------------------------------------
 
-## FR7 -- Resource Availability (RA)
+## FR7 - Disponibilità delle Risorse (RA)
 
 AS-IS: - No resilience evaluation - No resource exhaustion protection -
 No watchdog mechanisms defined
@@ -221,7 +221,7 @@ Gap: Medium
 
 ------------------------------------------------------------------------
 
-# 6. Component-Level Security (IEC 62443-4-2)
+# 6. Sicurezza a Livello di Componente (IEC 62443-4-2)
 
 PLC: - No documented hardening baseline - Default service exposure not
 assessed
@@ -237,7 +237,7 @@ Gap: Component security lifecycle absent.
 
 ------------------------------------------------------------------------
 
-# 7. Security Program Assessment (IEC 62443-2-1)
+# 7. Valutazione del Programma di Sicurezza (IEC 62443-2-1)
 
 AS-IS: - No documented cybersecurity policy - No asset inventory - No
 vulnerability management - No patch management - No incident response
@@ -251,7 +251,7 @@ Gap: Organizational security program not implemented.
 
 ------------------------------------------------------------------------
 
-# 8. Overall Security Level Assessment
+# 8. Valutazione Complessiva del Security Level
 
   ------------------------------------------------------------------------
   Foundational Requirement    SL-A (Actual)  SL-T (Target)  Gap Severity
@@ -277,7 +277,7 @@ Target maturity level: SL2.
 
 ------------------------------------------------------------------------
 
-# 9. Executive Conclusion
+# 9. Conclusione Esecutiva
 
 The current industrial test bench configuration:
 

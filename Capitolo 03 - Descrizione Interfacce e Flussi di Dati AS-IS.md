@@ -1,10 +1,10 @@
 # Industrial Test Bench System
 
-## AS-IS Interface and Data Flow Map
+## Descrizione Interfacce e Flussi di Dati AS-IS
 
 ------------------------------------------------------------------------
 
-## 1. Scope
+### 1. Scopo
 
 This document maps the **interfaces** and **data flows** of the current
 (AS-IS) industrial test bench architecture, including: - Control

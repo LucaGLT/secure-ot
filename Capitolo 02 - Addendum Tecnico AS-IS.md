@@ -1,25 +1,27 @@
 # Industrial Test Bench System
 
-## AS-IS Technical Addendum
+## Addendum Tecnico AS-IS
 
-### Detailed Technical Architecture Description
-
-------------------------------------------------------------------------
-
-## 1. Purpose of This Addendum
-
-This document provides a deeper technical description of the current
-(AS-IS) test bench architecture.
-
-It complements the main AS-IS system description by detailing: -
-Hardware components - Control interfaces - Data flows - Device Under
-Test (DUT) capabilities - Current integration limitations
+### Descrizione Dettagliata dell'Architettura Tecnica
 
 ------------------------------------------------------------------------
 
-## 2. Asset Inventory
+### 1. Scopo di questo Addendum
 
-### 2.1 Control Layer
+Quesra documento fornisce una descrizione tecnica più approfondita dell'architettura attuale (AS-IS) del test bench.
+
+Completa la descrizione principale del sistema AS-IS fornendo dettagli su:
+- Componenti hardware
+- Interfacce di controllo
+- Flussi di dati
+- Capacità del Device Under Test (DUT)
+- Limitazioni di integrazione attuali
+
+------------------------------------------------------------------------
+
+### 2. Inventario degli Asset
+
+#### 2.1 Strato di Controllo
 
 **PLC** - Model class: Siemens S7-1200 (e.g., CPU 1214C) - I/O: -
 Digital Inputs (DI) - Digital Outputs (DO) - Analog Inputs (AI 4--20
@@ -33,7 +35,7 @@ visualization - No centralized data storage
 
 ------------------------------------------------------------------------
 
-### 2.2 Pressure Subsystem
+#### 2.2 Sottosistema Pressione
 
 -   High-pressure pump (electrically driven)
 -   Solenoid discharge valve (DO controlled)
@@ -47,7 +49,7 @@ visualization - No centralized data storage
 
 ------------------------------------------------------------------------
 
-### 2.3 Temperature Subsystem
+#### 2.3 Sottosistema Temperatura
 
 -   Climatic chamber or heating system
 -   Stand-alone temperature controller (e.g., Eurotherm / Omron)
@@ -59,7 +61,7 @@ visualization - No centralized data storage
 
 ------------------------------------------------------------------------
 
-### 2.4 Data Acquisition Equipment
+#### 2.4 Apparecchiature di Acquisizione Dati
 
 -   Stand-alone industrial data logger
 -   Records pressure and temperature signals
@@ -72,7 +74,7 @@ visualization - No centralized data storage
 
 ------------------------------------------------------------------------
 
-## 3. Safety Architecture (Current Implementation)
+### 3. Architettura di Sicurezza (Implementazione Attuale)
 
 -   Safety relay chain (hardwired logic)
 -   Inputs include:
@@ -90,12 +92,12 @@ Safety operates independently of PLC logic.
 
 ------------------------------------------------------------------------
 
-## 4. Device Under Test (DUT) Characteristics
+### 4. Caratteristiche del Device Under Test (DUT)
 
 The DUT frequently includes embedded electronics with internal
 intelligence.
 
-### 4.1 DUT Functional Capabilities
+#### 4.1 Capacità Funzionali del DUT
 
 -   Internal sensor measurements (e.g. pressure, temperature, position,
     current)
@@ -103,7 +105,7 @@ intelligence.
 -   Event recording
 -   Internal memory storage
 
-### 4.2 DUT Data Export Methods
+#### 4.2 Metodi di Esportazione Dati del DUT
 
 At the end of test cycle:
 
@@ -111,7 +113,7 @@ At the end of test cycle:
 -   Ethernet-based file download (manual procedure)
 -   Data provided as structured logs (e.g., CSV, proprietary format)
 
-### 4.3 DUT API (Currently Unused)
+#### 4.3 API del DUT (Non Utilizzata Attualmente)
 
 The DUT provides a programmable interface (not integrated in current
 workflow):
@@ -127,9 +129,9 @@ operationally as a black box until log extraction
 
 ------------------------------------------------------------------------
 
-## 5. Current Data Flow
+### 5. Flussi di Dati Attuali
 
-### 5.1 During Test
+#### 5.1 Durante il Test
 
 -   PLC controls pressure subsystem
 -   Temperature controller executes its own profile
@@ -143,7 +145,7 @@ Synchronization depends on operator actions.
 
 ------------------------------------------------------------------------
 
-### 5.2 End of Test
+#### 5.2 Fine del Test
 
 Operator performs:
 
@@ -159,7 +161,7 @@ Data aggregation is manual and typically performed using spreadsheets.
 
 ------------------------------------------------------------------------
 
-## 6. Identified Integration Gaps
+### 6. Gap di Integrazione Identificati
 
 -   No centralized orchestration logic
 -   No unified test ID across subsystems
@@ -170,7 +172,7 @@ Data aggregation is manual and typically performed using spreadsheets.
 
 ------------------------------------------------------------------------
 
-## 7. Architectural Baseline Characteristics
+### 7. Caratteristiche della Linea di Base Architettonica
 
 -   Strong physical safety isolation
 -   Minimal digital connectivity

@@ -1,10 +1,10 @@
 # Industrial Test Bench System
 
-## TO-BE System Description
+## Descrizione del Test Bench TO-BE
 
 ------------------------------------------------------------------------
 
-## 1. Overview
+### 1. Panoramica
 
 The target system evolves from a manually coordinated test environment
 to an integrated, automated, and partially remote-supervised industrial
@@ -16,9 +16,9 @@ while maintaining or improving functional safety.
 
 ------------------------------------------------------------------------
 
-## 2. Target Control Architecture
+### 2. Architettura di Controllo Target
 
-### 2.1 Centralized Process Orchestration
+#### 2.1 Orchestrazione Centralizzata del Processo
 
 -   A central control logic coordinates all subsystems (pressure,
     temperature, acquisition).
@@ -30,7 +30,7 @@ while maintaining or improving functional safety.
 -   Pre-test validation of parameters and system state is performed
     automatically.
 
-### 2.2 Integrated Data Infrastructure
+#### 2.2 Infrastruttura di Dati Integrata
 
 -   All subsystems stream data to a centralized repository.
 -   Each test is uniquely identified and associated with:
@@ -40,7 +40,7 @@ while maintaining or improving functional safety.
     -   Operator ID
 -   Data correlation is automatic and structured.
 
-### 2.3 Remote Supervision Capability
+#### 2.3 Capacità di Supervisione Remota
 
 -   PC-based HMI for supervisory control.
 -   Tablet-based monitoring (restricted functionality).
@@ -50,9 +50,9 @@ Remote control privileges are limited and role-based.
 
 ------------------------------------------------------------------------
 
-## 3. Operational Workflow
+### 3. Flusso Operativo
 
-### 3.1 Test Preparation
+#### 3.1 Preparazione del Test
 
 Operator responsibilities:
 
@@ -70,7 +70,7 @@ Test start is conditional on validation success.
 
 ------------------------------------------------------------------------
 
-### 3.2 Automated Test Execution
+#### 3.2 Esecuzione Automatizzata del Test
 
 System responsibilities:
 
@@ -90,7 +90,7 @@ The operator shifts from executor to supervisor.
 
 ------------------------------------------------------------------------
 
-### 3.3 End-of-Test and Reporting
+#### 3.3 Fine Test e Reportistica
 
 System responsibilities:
 
@@ -107,7 +107,7 @@ Operator responsibilities:
 
 ------------------------------------------------------------------------
 
-## 4. Safety Architecture (Target State)
+### 4. Architettura di Sicurezza (Stato Target)
 
 -   Safety functions implemented in dedicated safety logic.
 -   Critical functions include:
@@ -122,7 +122,7 @@ Functional safety remains independent from supervisory systems.
 
 ------------------------------------------------------------------------
 
-## 5. Cyber Security Foundations
+### 5. Fondamenti di Sicurezza Informatica
 
 The introduction of connectivity creates a new exposure surface.
 
@@ -139,9 +139,9 @@ functions.
 
 ------------------------------------------------------------------------
 
-## 6. Responsibility Model (TO-BE)
+### 6. Modello di Responsabilità (TO-BE)
 
-### Operator Responsibilities
+#### Responsabilità dell'Operatore
 
 -   Authorize test execution.
 -   Supervise automated process.
@@ -149,7 +149,7 @@ functions.
 -   Validate final results.
 -   Maintain accountability for test acceptance.
 
-### System Responsibilities
+#### Responsabilità del Sistema
 
 -   Coordinate full test lifecycle.
 -   Validate preconditions.
@@ -158,7 +158,7 @@ functions.
 -   Generate formal reports.
 -   Maintain event traceability.
 
-### Safety System Responsibilities
+#### Responsabilità della Logica di Sicurezza
 
 -   Enforce safe operational limits.
 -   Override unsafe commands.
@@ -167,7 +167,7 @@ functions.
 
 ------------------------------------------------------------------------
 
-## 7. Key Characteristics of the Target State
+### 7. Caratteristiche Chiave dello Stato Target
 
 -   Reduced manual synchronization.
 -   Increased repeatability.

@@ -1,12 +1,12 @@
 # Industrial Test Bench System
 
-## Emerging Cyber Security Challenges
+## Sfide Emergenti di Sicurezza Informatica e Interazione con la Sicurezza Funzionale
 
-### Interpretation in Relation to Functional Safety
+### Interpretazione in Relazione alla Sicurezza Funzionale
 
 ------------------------------------------------------------------------
 
-## 1. Introduction
+### 1. Introduzione
 
 The transition from an isolated, manually coordinated system to an
 automated and partially connected platform introduces a fundamental
@@ -21,15 +21,15 @@ interaction with safety requirements.
 
 ------------------------------------------------------------------------
 
-## 2. Change in Risk Nature
+### 2. Cambio nella Natura del Rischio
 
-### AS-IS Risk Model
+#### Modello di Rischio AS-IS
 
 -   Risk dominated by human error.
 -   Minimal cyber exposure due to isolation.
 -   Safety primarily procedural and locally enforced.
 
-### TO-BE Risk Model
+#### Modello di Rischio TO-BE
 
 -   Reduced manual variability.
 -   Increased dependence on control logic integrity.
@@ -56,7 +56,7 @@ intervention or lead to inappropriate decisions.
 
 ------------------------------------------------------------------------
 
-### 3.2 Remote Access Channels
+#### 3.2 Canali di Accesso Remoto
 
 Potential risks: - Unauthorized access to control systems. - Lateral
 movement from IT to OT network. - Uncontrolled configuration changes.
@@ -66,7 +66,7 @@ technically constrained.
 
 ------------------------------------------------------------------------
 
-### 3.3 Centralized Data Infrastructure
+#### 3.3 Infrastruttura di Dati Centralizzata
 
 Potential risks: - Data integrity compromise. - Loss of traceability. -
 Tampering with test records.
@@ -76,7 +76,7 @@ or invalidate compliant ones.
 
 ------------------------------------------------------------------------
 
-## 4. Safety and Cyber Security Interaction Model
+### 4. Modello di Interazione tra Sicurezza Funzionale e Sicurezza Informatica
 
 Functional Safety ensures: - Safe state enforcement. - Deterministic
 trip behavior. - Protection against foreseeable faults.
@@ -89,7 +89,7 @@ safety-relevant behavior.
 
 ------------------------------------------------------------------------
 
-## 5. Critical Design Principle
+### 5. Principio Critico di Progettazione
 
 Safety must not depend on cyber integrity.
 
@@ -105,9 +105,9 @@ equipment.
 
 ------------------------------------------------------------------------
 
-## 6. Emerging Combined Risk Scenarios
+### 6. Scenari di Rischio Combinato Emergenti
 
-### Scenario A: Recipe Manipulation
+#### Scenario A: Manipolazione della Ricetta
 
 If an attacker modifies a pressure ramp profile, the process may exceed
 safe mechanical limits.
@@ -117,7 +117,7 @@ thresholds independent of recipe.
 
 ------------------------------------------------------------------------
 
-### Scenario B: Alarm Suppression
+#### Scenario B: Soppressione degli Allarmi
 
 If alarms are hidden or disabled in HMI, operator reaction may be
 delayed.
@@ -127,7 +127,7 @@ redundancy or hardware signaling.
 
 ------------------------------------------------------------------------
 
-### Scenario C: Unauthorized Remote Control
+#### Scenario C: Controllo Remoto Non Autorizzato
 
 If remote access is exploited, unsafe commands could be issued.
 
@@ -137,7 +137,7 @@ segmentation.
 
 ------------------------------------------------------------------------
 
-## 7. Governance Implications
+### 7. Implicazioni di Governance
 
 The TO-BE system requires:
 
@@ -153,7 +153,7 @@ of system-level risk analysis.
 
 ------------------------------------------------------------------------
 
-## 8. Validation and Testing Considerations
+### 8. Considerazioni di Validazione e Test
 
 Cyber Security Testing should include:
 
@@ -173,7 +173,7 @@ disable safety functions.
 
 ------------------------------------------------------------------------
 
-## 9. Strategic Conclusion
+### 9. Conclusione Strategica
 
 The evolution toward automation and connectivity transforms the system
 from: Human-centered safety control to System-centered deterministic

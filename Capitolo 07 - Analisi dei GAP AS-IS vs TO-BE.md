@@ -1,12 +1,12 @@
 # Industrial Test Bench System
 
-## GAP Analysis -- AS-IS vs TO-BE
+## Analisi dei GAP AS-IS vs TO-BE
 
-### Automation, Functional Safety and Cyber Security Transformation
+### Automazione, Sicurezza Funzionale e Trasformazione della Sicurezza Informatica
 
 ------------------------------------------------------------------------
 
-# 1. Purpose
+# 1. Scopo
 
 This document defines the structured GAP analysis between the current
 AS-IS configuration and the desired TO-BE architecture of the industrial
@@ -24,13 +24,13 @@ This document serves as a decision and architectural planning baseline.
 
 ------------------------------------------------------------------------
 
-# 2. Intervention Areas and Macro Objectives
+# 2. Aree di Intervento e Obiettivi Macro
 
 ------------------------------------------------------------------------
 
-## AREA A -- Process Orchestration
+## AREA A - Orchestrazione del Processo
 
-### Macro Objectives
+### Obiettivi Macro
 
 A1 -- Transition from manual coordination to deterministic centralized
 orchestration\
@@ -44,9 +44,9 @@ A2 -- Introduce unified Test ID and time synchronization
 
 ------------------------------------------------------------------------
 
-## AREA B -- Data Management & Traceability
+## AREA B - Gestione dei Dati & Tracciabilità
 
-### Macro Objectives
+### Obiettivi Macro
 
 B1 -- Unify multi-source data collection\
 B2 -- Ensure data integrity and correlation\
@@ -61,9 +61,9 @@ B3 -- Automate structured report generation
 
 ------------------------------------------------------------------------
 
-## AREA C -- Functional Safety
+## AREA C - Sicurezza Funzionale
 
-### Macro Objectives
+### Obiettivi Macro
 
 C1 -- Define architectural boundary between process logic and safety
 logic\
@@ -79,9 +79,9 @@ C3 -- Extend hazard analysis to include cyber-induced failures
 
 ------------------------------------------------------------------------
 
-## AREA D -- Cyber Security (OT)
+## AREA D - Sicurezza Informatica (OT)
 
-### Macro Objectives
+### Obiettivi Macro
 
 D1 -- Introduce segmented OT network architecture\
 D2 -- Protect authenticity and integrity of commands\
@@ -96,9 +96,9 @@ D4 -- Secure DUT API integration
 
 ------------------------------------------------------------------------
 
-## AREA E -- Governance & Lifecycle Management
+## AREA E - Governance & Gestione del Ciclo di Vita
 
-### Macro Objectives
+### Obiettivi Macro
 
 E1 -- Introduce configuration and version management\
 E2 -- Formalize change management\

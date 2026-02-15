@@ -1,12 +1,12 @@
 # Industrial Test Bench System
 
-## AS-IS vs TO-BE Comparison
+## Analisi dell'Evoluzione delle Responsabilità AS-IS vs TO-BE
 
-### Focus on Operator Responsibility Evolution
+### Focus sull'Evoluzione delle Responsabilità dell'Operatore
 
 ------------------------------------------------------------------------
 
-## 1. Introduction
+### 1. Introduzione
 
 This document analyzes the transition from the current (AS-IS) manually
 coordinated test system to the future (TO-BE) automated and remotely
@@ -18,7 +18,7 @@ System, and Safety Logic.
 
 ------------------------------------------------------------------------
 
-## 2. Structural Shift in Responsibility
+### 2. Trasformazione Strutturale della Responsabilità
 
 The transformation is not purely technological. It represents a
 fundamental redistribution of operational responsibility.
@@ -30,9 +30,9 @@ the Operator becomes supervisor and decision authority.
 
 ------------------------------------------------------------------------
 
-## 3. Responsibility Mapping
+### 3. Mappatura della Responsabilità
 
-### 3.1 Process Coordination
+#### 3.1 Coordinamento del Processo
 
 AS-IS: - Operator manually starts subsystems. - Operator synchronizes
 pressure, temperature, and acquisition. - Coordination exists
@@ -47,7 +47,7 @@ and testable control logic.
 
 ------------------------------------------------------------------------
 
-### 3.2 Parameter Validation
+#### 3.2 Validazione dei Parametri
 
 AS-IS: - Operator verifies setpoints. - Risk of omission or
 misconfiguration.
@@ -60,7 +60,7 @@ Impact: Reduction of configuration-related human error.
 
 ------------------------------------------------------------------------
 
-### 3.3 Monitoring During Test
+#### 3.3 Monitoraggio Durante il Test
 
 AS-IS: - Operator continuously monitors all instruments. - Detection of
 anomalies depends on vigilance.
@@ -73,7 +73,7 @@ Impact: Shift from active manual control to supervisory control.
 
 ------------------------------------------------------------------------
 
-### 3.4 Data Handling
+#### 3.4 Gestione dei Dati
 
 AS-IS: - Manual data extraction. - Manual aggregation. - Manual report
 construction.
@@ -85,7 +85,7 @@ Impact: Responsibility shifts from data processing to result validation.
 
 ------------------------------------------------------------------------
 
-### 3.5 Safety Oversight
+#### 3.5 Supervisione della Sicurezza
 
 AS-IS: - Safety largely procedural and operator-driven. - Local
 protections may exist but global coordination is human.
@@ -99,7 +99,7 @@ safety enforcement.
 
 ------------------------------------------------------------------------
 
-## 4. Responsibility Redistribution Summary Table
+### 4. Tabella Sintetica della Ridistribuzione della Responsabilità
 
   ------------------------------------------------------------------------
   Activity        AS-IS        TO-BE       Responsibility Shift
@@ -128,7 +128,7 @@ safety enforcement.
 
 ------------------------------------------------------------------------
 
-## 5. New Operator Role Definition
+### 5. Nuova Definizione del Ruolo dell'Operatore
 
 In the TO-BE scenario, the Operator becomes:
 
@@ -142,7 +142,7 @@ accountable human decision-maker.
 
 ------------------------------------------------------------------------
 
-## 6. Emerging Implications
+### 6. Implicazioni Emergenti
 
 The redistribution of responsibility introduces new requirements:
 
@@ -156,7 +156,7 @@ dependence on system integrity.
 
 ------------------------------------------------------------------------
 
-## 7. Core Transformation Principle
+### 7. Principio Fondamentale della Trasformazione
 
 AS-IS: Human intelligence ensures coordination.
 
