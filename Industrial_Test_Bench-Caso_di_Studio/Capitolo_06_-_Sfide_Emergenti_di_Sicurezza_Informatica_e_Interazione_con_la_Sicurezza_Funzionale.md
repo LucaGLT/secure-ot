@@ -27,11 +27,11 @@ Questo documento analizza le problematiche emergenti di sicurezza informatica e 
 
 Il rischio si sposta dall'errore umano individuale alla vulnerabilità sistemica.
 
-## 3. Nuove Superfici di Esposizione Cyber
+### 3. Nuove Superfici di Esposizione Cyber
 
 L'introduzione di supervisione e capacità remote crea nuovi vettori di attacco:
 
-### 3.1 Sistemi Supervisori (HMI / SCADA)
+#### 3.1 Sistemi Supervisori (HMI / SCADA)
 
 Rischi potenziali:
 

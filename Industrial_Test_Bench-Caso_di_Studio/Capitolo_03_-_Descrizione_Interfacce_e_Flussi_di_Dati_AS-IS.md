@@ -11,7 +11,7 @@ Questo documento mappa le **interfacce** e i **flussi di dati** dell'architettur
 
 L'obiettivo è fornire una baseline concreta per derivare i requisiti architetturali TO-BE.
 
-## 2. Confini del Sistema (AS-IS)
+### 2. Confini del Sistema (AS-IS)
 
 Asset inclusi:
 
@@ -30,9 +30,9 @@ Escluso (AS-IS):
 - Pipeline di generazione report automatizzata
 - Segmentazione rete OT (nessuna rete OT in pratica)
 
-## 3. Mappa delle Interfacce (Fisiche / Logiche)
+### 3. Mappa delle Interfacce (Fisiche / Logiche)
 
-### 3.1 Interfacce di Controllo e Sicurezza (Segnali)
+#### 3.1 Interfacce di Controllo e Sicurezza (Segnali)
 
 | ID Interfaccia | Da | A | Tipo | Segnale/Protocollo | Scopo | Note |
 |----------------|----|----|------|-------------------|-------|------|
@@ -49,7 +49,7 @@ Escluso (AS-IS):
 | IF-11 | PLC | Controllore temp | Digitale | DI/DO contatto pulito | Stato RUN/READY/FAULT e abilitazione semplice | Nessun coordinamento profili |
 | IF-12 | Sensori temp | Controllore temp | Analogico | PT100/TC | Misurazione temperatura | Non acquisito da PLC in AS-IS |
 
-### 3.2 Interfacce di Acquisizione Dati (Da Misura a Logger)
+#### 3.2 Interfacce di Acquisizione Dati (Da Misura a Logger)
 
 | ID Interfaccia | Da | A | Tipo | Segnale/Protocollo | Dati | Note |
 |----------------|----|----|------|-------------------|------|------|
@@ -57,7 +57,7 @@ Escluso (AS-IS):
 | IF-21 | Controllore temp (uscita analogica) o sonda dedicata | Datalogger | Analogico | 4-20 mA / Modulo PT100/TC | Trend temperatura | Spesso canali separati |
 | IF-22 | Sensori ausiliari (se presenti) | Datalogger | Misto | Analogico/Digitale | Segnali opzionali | Non standardizzato |                                                       
 
-### 3.3 Interfacce di Esportazione Dati (File)
+#### 3.3 Interfacce di Esportazione Dati (File)
 
 | ID Interfaccia | Da | A | Supporto | Formato | Tempistica | Note |
 |----------------|----|----|----------|---------|------------|------|
@@ -68,16 +68,16 @@ Escluso (AS-IS):
 | IF-34 | DUT | Operatore | Ethernet (diretto) | Trasferimento file (SMB/FTP/HTTP download) | Fine test (dopo finalizzazione log) | Usato occasionalmente |
 | IF-35 | Operatore | Template Report | PC (offline) | Workbook Excel | Post-test | Aggregazione manuale |                
 
-### 3.4 Interfaccia Dati Real-Time del DUT (Presente ma NON utilizzata)
+#### 3.4 Interfaccia Dati Real-Time del DUT (Presente ma NON utilizzata)
 
 | ID Interfaccia | Da | A | Protocollo | Capacità | Stato in AS-IS | Rischio/Nota |
 |----------------|----|----|------------|----------|----------------|---------------|
 | IF-40 | DUT | Client esterno | REST/HTTP o TCP | Lettura misure live, stato, stream eventi | Non usata | Richiede software client + integrazione rete |
 | IF-41 | Client esterno | DUT | REST/HTTP o TCP | Avvio/arresto logging, recupero log parziali | Non usata | Deve essere vincolato per evitare controllo non intenzionale |
 
-## 4. Mappa dei Flussi di Dati (End-to-End)
+### 4. Mappa dei Flussi di Dati (End-to-End)
 
-### 4.1 Flussi di Dati Durante il Test
+#### 4.1 Flussi di Dati Durante il Test
 
 **DF-01 Controllo di processo (pressione)**
 
@@ -97,7 +97,7 @@ Escluso (AS-IS):
 - Il DUT registra i propri sensori interni in modo indipendente
 - Non esiste un identificatore di test condiviso tra le sorgenti
 
-### 4.2 Flussi di Dati a Fine Test
+#### 4.2 Flussi di Dati a Fine Test
 
 **DF-10 Esportazione logger**
 
@@ -124,9 +124,9 @@ Escluso (AS-IS):
   - Esportazione controllore (opzionale)
 - Il report è costruito in Excel (copia/incolla, calcoli, grafici)
 
-## 5. Punti di Correlazione e Gap
+### 5. Punti di Correlazione e Gap
 
-### 5.1 Punti di Correlazione
+#### 5.1 Punti di Correlazione
 
 - Tempo di inizio test (definito dall'operatore)
 - Durata test / tempo di mantenimento
@@ -134,7 +134,7 @@ Escluso (AS-IS):
 - Milestone del profilo di temperatura
 - Timestamp interni del DUT (se presenti)
 
-### 5.2 Gap Attuali
+#### 5.2 Gap Attuali
 
 - Nessun **ID Test** automatico propagato tra i sottosistemi
 - Nessuna sincronizzazione temporale garantita tra:
@@ -145,7 +145,7 @@ Escluso (AS-IS):
 - I dati sono multi-sorgente e post-correlati manualmente
 - La capacità API del DUT è inutilizzata, impedendo l'integrazione near-real-time
 
-## 6. Punti di Contatto dell'Operatore
+### 6. Punti di Contatto dell'Operatore
 
 - Sequenziamento avvio/arresto su più dispositivi
 - Conferma manuale degli stati di prontezza
@@ -155,7 +155,7 @@ Escluso (AS-IS):
 
 Questi punti di contatto sono le principali fonti di variabilità operativa e errori nel modello AS-IS.
 
-## 7. Diagramma Riassuntivo (Testuale)
+### 7. Diagramma Riassuntivo (Testuale)
 
 - **Percorso di Controllo**
 
@@ -180,7 +180,7 @@ Questi punti di contatto sono le principali fonti di variabilità operativa e er
 
   - API DUT (dati live) esiste ma non fa parte del flusso operativo
 
-## 8. Driver di Baseline per TO-BE
+### 8. Driver di Baseline per TO-BE
 
 - Introdurre un **ID Test** univoco e propagarlo tra le sorgenti dati
 - Ridurre i passaggi di esportazione manuale attraverso percorsi di ingestione strutturati
