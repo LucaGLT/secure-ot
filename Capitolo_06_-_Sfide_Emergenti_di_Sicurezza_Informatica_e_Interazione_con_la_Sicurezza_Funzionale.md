@@ -4,8 +4,6 @@
 
 ### Interpretazione in Relazione alla Sicurezza Funzionale
 
-------------------------------------------------------------------------
-
 ### 1. Introduzione
 
 The transition from an isolated, manually coordinated system to an
@@ -18,8 +16,6 @@ directly or indirectly affect functional safety.
 
 This document analyzes emerging cyber security issues and their
 interaction with safety requirements.
-
-------------------------------------------------------------------------
 
 ### 2. Cambio nella Natura del Rischio
 
@@ -38,8 +34,6 @@ interaction with safety requirements.
 
 Risk shifts from individual human error to systemic vulnerability.
 
-------------------------------------------------------------------------
-
 ## 3. New Cyber Exposure Surfaces
 
 The introduction of supervision and remote capabilities creates new
@@ -47,47 +41,55 @@ attack vectors:
 
 ### 3.1 Supervisory Systems (HMI / SCADA)
 
-Potential risks: - Unauthorized modification of test recipes. -
-Manipulation of process parameters. - Suppression or alteration of
-alarms. - False visualization of process variables.
+Potential risks:
+
+- Unauthorized modification of test recipes.
+- Manipulation of process parameters.
+- Suppression or alteration of alarms.
+- False visualization of process variables.
 
 Safety relevance: Incorrect supervisory information may delay human
 intervention or lead to inappropriate decisions.
 
-------------------------------------------------------------------------
-
 #### 3.2 Canali di Accesso Remoto
 
-Potential risks: - Unauthorized access to control systems. - Lateral
-movement from IT to OT network. - Uncontrolled configuration changes.
+Potential risks:
+
+- Unauthorized access to control systems.
+- Lateral movement from IT to OT network.
+- Uncontrolled configuration changes.
 
 Safety relevance: Remote access could enable unsafe commands if not
 technically constrained.
 
-------------------------------------------------------------------------
-
 #### 3.3 Infrastruttura di Dati Centralizzata
 
-Potential risks: - Data integrity compromise. - Loss of traceability. -
-Tampering with test records.
+Potential risks:
+
+- Data integrity compromise.
+- Loss of traceability.
+- Tampering with test records.
 
 Safety relevance: Corrupted test results may validate unsafe components
 or invalidate compliant ones.
 
-------------------------------------------------------------------------
-
 ### 4. Modello di Interazione tra Sicurezza Funzionale e Sicurezza Informatica
 
-Functional Safety ensures: - Safe state enforcement. - Deterministic
-trip behavior. - Protection against foreseeable faults.
+Functional Safety ensures:
 
-Cyber Security ensures: - Integrity of commands. - Authenticity of
-users. - Confidentiality of sensitive data. - Availability of systems.
+- Safe state enforcement.
+- Deterministic trip behavior.
+- Protection against foreseeable faults.
+
+Cyber Security ensures:
+
+- Integrity of commands.
+- Authenticity of users.
+- Confidentiality of sensitive data.
+- Availability of systems.
 
 The intersection occurs where digital compromise could influence
 safety-relevant behavior.
-
-------------------------------------------------------------------------
 
 ### 5. Principio Critico di Progettazione
 
@@ -103,8 +105,6 @@ This means:
 Cyber controls protect the process, but safety logic protects people and
 equipment.
 
-------------------------------------------------------------------------
-
 ### 6. Scenari di Rischio Combinato Emergenti
 
 #### Scenario A: Manipolazione della Ricetta
@@ -112,30 +112,31 @@ equipment.
 If an attacker modifies a pressure ramp profile, the process may exceed
 safe mechanical limits.
 
-Mitigation: - Parameter validation inside control logic. - Hard safety
-thresholds independent of recipe.
+Mitigation:
 
-------------------------------------------------------------------------
+- Parameter validation inside control logic.
+- Hard safety thresholds independent of recipe.
 
 #### Scenario B: Soppressione degli Allarmi
 
 If alarms are hidden or disabled in HMI, operator reaction may be
 delayed.
 
-Mitigation: - Safety trip independent of HMI visibility. - Alarm
-redundancy or hardware signaling.
+Mitigation:
 
-------------------------------------------------------------------------
+- Safety trip independent of HMI visibility.
+- Alarm redundancy or hardware signaling.
 
 #### Scenario C: Controllo Remoto Non Autorizzato
 
 If remote access is exploited, unsafe commands could be issued.
 
-Mitigation: - Role-based access control. - Multi-factor
-authentication. - Command logging and session traceability. - Network
-segmentation.
+Mitigation:
 
-------------------------------------------------------------------------
+- Role-based access control.
+- Multi-factor authentication.
+- Command logging and session traceability.
+- Network segmentation.
 
 ### 7. Implicazioni di Governance
 
@@ -150,8 +151,6 @@ The TO-BE system requires:
 
 Functional safety validation must consider cyber-induced hazards as part
 of system-level risk analysis.
-
-------------------------------------------------------------------------
 
 ### 8. Considerazioni di Validazione e Test
 
@@ -170,8 +169,6 @@ Functional Safety Testing should confirm:
 
 Combined testing scenarios must verify that cyber compromise cannot
 disable safety functions.
-
-------------------------------------------------------------------------
 
 ### 9. Conclusione Strategica
 

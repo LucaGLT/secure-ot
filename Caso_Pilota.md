@@ -1,23 +1,15 @@
----
 tags: []
 created: '2026-02-14'
 title: 'Caso Pilota'
----
 
 Perfetto. Qui facciamo un passo strutturale: non parliamo di tecnologia, ma di chi è responsabile di cosa, prima e dopo.
 Questa mappa è il punto in cui Safety e Cyber iniziano a parlarsi sul serio.
-
-
----
 
 Mappa delle responsabilità
 
 Uomo vs Sistema
 
 AS-IS → TO-BE
-
-
----
 
 1. Prima: situazione attuale (AS-IS)
 
@@ -47,9 +39,6 @@ Garantire, di fatto, la coerenza complessiva della prova.
 👉 La safety operativa dipende fortemente dal comportamento umano.
 👉 Il sistema “esegue”, ma non governa.
 
-
----
-
 Ruolo del sistema
 
 Il sistema oggi ha un ruolo esecutivo e passivo.
@@ -78,9 +67,6 @@ Verifica di coerenza di una prova end-to-end.
 
 👉 Il sistema non ha una visione del processo, solo di parti.
 
-
----
-
 Conseguenza chiave (AS-IS)
 
 L’errore più pericoloso è l’errore umano.
@@ -91,15 +77,10 @@ La ripetibilità è una funzione dell’esperienza dell’operatore.
 
 
 
----
-
 2. Dopo: scenario target (TO-BE)
 
 Qui avviene il cambio di paradigma:
 l’uomo non coordina più, ma supervisiona.
-
-
----
 
 Ruolo dell’uomo (ridefinito)
 
@@ -135,9 +116,6 @@ Raccogliere o aggregare dati.
 
 👉 La responsabilità umana si sposta dal fare al controllare.
 
-
----
-
 Ruolo del sistema (ridefinito)
 
 Il sistema diventa regista del processo.
@@ -163,9 +141,6 @@ Tracciare eventi, allarmi, interventi umani.
 
 👉 Il sistema conosce il processo end-to-end.
 
-
----
-
 3. La linea di confine critica: cosa NON deve mai passare al sistema
 
 Qui nasce la convivenza Safety ↔ Cyber.
@@ -183,9 +158,6 @@ Reset di sicurezza solo in presenza fisica.
 
 👉 Nessun PC, tablet o rete decide sulla sicurezza.
 
-
----
-
 Sempre in mano all’uomo
 
 Autorizzazione iniziale alla prova.
@@ -198,9 +170,6 @@ Accettazione o scarto del pezzo.
 
 
 👉 L’uomo resta responsabile del giudizio.
-
-
----
 
 4. Tabella di sintesi (molto utile in documenti ufficiali)
 
@@ -216,9 +185,6 @@ Creazione report	Uomo	Sistema
 Validazione risultato	Uomo	Uomo
 Accesso remoto	Assente	Supervisionato e limitato
 
-
-
----
 
 5. Implicazione fondamentale (da non perdere)
 

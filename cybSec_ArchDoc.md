@@ -1,8 +1,6 @@
----
 tags: []
 created: '2026-02-13'
 title: 'cybSec ArchDoc'
----
 
 # Cybersecurity Architecture Definition
 
@@ -12,8 +10,6 @@ title: 'cybSec ArchDoc'
 > Questo file rappresenta la versione *commentata* dello scheletro del documento.
 > Le sezioni contengono **note guida** destinate all’autore (o al team) per orientare la scrittura del contenuto finale.
 > Le note dovranno essere **rimosse** nella versione finale del documento.
-
----
 
 ## Capitolo 1 – Contesto, Scopo e Baseline di Rischio
 
@@ -30,8 +26,6 @@ title: 'cybSec ArchDoc'
 > * Dichiarare che il documento definisce una *baseline architetturale*.
 > * Specificare esplicitamente cosa NON è (manuale di implementazione, SDLC, compliance document).
 
----
-
 ### 1.2 Ambito di applicazione
 
 > **Guida alla scrittura**
@@ -39,8 +33,6 @@ title: 'cybSec ArchDoc'
 > * Definire chiaramente il dominio: embedded industrial systems.
 > * Evitare esempi consumer o IT puri.
 > * Specificare che l’architettura è applicabile a famiglie di prodotti, non a un singolo device.
-
----
 
 ### 1.3 Contesto operativo del sistema
 
@@ -51,8 +43,6 @@ title: 'cybSec ArchDoc'
 > * Evidenziare interazioni con backend, SCADA, strumenti di manutenzione.
 > * Non parlare ancora di protocolli o soluzioni.
 
----
-
 ### 1.4 Confini del sistema
 
 > **Guida alla scrittura**
@@ -61,8 +51,6 @@ title: 'cybSec ArchDoc'
 > * Esplicitare che la rete esterna e l’impianto non sono implicitamente trusted.
 > * Questo paragrafo serve a evitare fraintendimenti futuri.
 
----
-
 ### 1.5 Assunzioni e vincoli
 
 > **Guida alla scrittura**
@@ -70,8 +58,6 @@ title: 'cybSec ArchDoc'
 > * Elencare solo assunzioni rilevanti per la sicurezza.
 > * Esempi: accesso fisico possibile, OTA necessario, risorse embedded limitate.
 > * Le assunzioni devono essere *difendibili*, non ottimistiche.
-
----
 
 ### 1.6 Baseline di rischio
 
@@ -87,8 +73,6 @@ title: 'cybSec ArchDoc'
 > * Motivare perché ogni asset è critico.
 > * Evitare elenchi troppo lunghi.
 
----
-
 #### 1.6.2 Profili di attaccante
 
 > **Guida alla scrittura**
@@ -97,16 +81,12 @@ title: 'cybSec ArchDoc'
 > * Includere insider e manutentori.
 > * Evitare attaccanti ipotetici non giustificati.
 
----
-
 #### 1.6.3 Superficie d’attacco
 
 > **Guida alla scrittura**
 >
 > * Suddividere chiaramente: fisica, rete, software, update.
 > * Questo paragrafo deve rendere evidente “da dove si entra”.
-
----
 
 #### 1.6.4 Scenari di minaccia prioritari
 
@@ -116,16 +96,12 @@ title: 'cybSec ArchDoc'
 > * Ogni scenario deve avere una conseguenza chiara.
 > * Questi scenari guideranno le scelte del Capitolo 2.
 
----
-
 #### 1.6.5 Criteri di priorità e impatto
 
 > **Guida alla scrittura**
 >
 > * Spiegare come vengono valutati i rischi (impatto operativo, safety, continuità).
 > * Non usare metriche complesse se non necessarie.
-
----
 
 #### 1.6.6 Rischio accettato ed esclusioni
 
@@ -134,8 +110,6 @@ title: 'cybSec ArchDoc'
 > * Dichiarare apertamente cosa NON viene mitigato.
 > * Motivare sempre il rischio accettato.
 > * Questo è un segno di maturità architetturale.
-
----
 
 ## Capitolo 2 – Cybersecurity Architecture (Baseline)
 
@@ -150,8 +124,6 @@ title: 'cybSec ArchDoc'
 > * Ribadire che l’architettura è risk-informed.
 > * Elencare pochi principi chiave (separazione fiducia, contenimento danno).
 
----
-
 ### 2.2 Visione architetturale di alto livello
 
 > **Guida alla scrittura**
@@ -159,8 +131,6 @@ title: 'cybSec ArchDoc'
 > * Descrivere l’architettura per domini, non per componenti.
 > * Introdurre il concetto di strati di fiducia.
 > * Inserire uno schema concettuale.
-
----
 
 ### 2.3 Root of Trust
 
@@ -170,8 +140,6 @@ title: 'cybSec ArchDoc'
 > * Chiarire cosa è trusted e cosa no.
 > * Evitare dettagli implementativi.
 
----
-
 ### 2.4 Secure Boot e catena di fiducia
 
 > **Guida alla scrittura**
@@ -179,8 +147,6 @@ title: 'cybSec ArchDoc'
 > * Descrivere la sequenza di verifiche.
 > * Spiegare cosa succede in caso di fallimento.
 > * Collegare esplicitamente agli scenari di minaccia.
-
----
 
 ### 2.5 Identità del dispositivo
 
@@ -190,8 +156,6 @@ title: 'cybSec ArchDoc'
 > * Evidenziare il contenimento del danno.
 > * Non entrare in PKI operative.
 
----
-
 ### 2.6 Comunicazioni sicure
 
 > **Guida alla scrittura**
@@ -199,8 +163,6 @@ title: 'cybSec ArchDoc'
 > * Dichiarare esplicitamente la rete non trusted.
 > * Spiegare autenticazione e gestione delle sessioni.
 > * Evitare dettagli di protocollo.
-
----
 
 ### 2.7 Aggiornamento firmware e recovery
 
@@ -210,8 +172,6 @@ title: 'cybSec ArchDoc'
 > * Evidenziare rollback e recovery.
 > * Collegare alla Root of Trust.
 
----
-
 ### 2.8 Gestione del ciclo di vita e del debug
 
 > **Guida alla scrittura**
@@ -220,16 +180,12 @@ title: 'cybSec ArchDoc'
 > * Evidenziare il debug come rischio.
 > * Non descrivere processi organizzativi.
 
----
-
 ### 2.9 Tracciabilità tra baseline di rischio e architettura
 
 > **Guida alla scrittura**
 >
 > * Rendere esplicito il collegamento rischio → decisione.
 > * Questa sezione chiude il cerchio del documento.
-
----
 
 > **Nota finale**
 > Una volta completato il contenuto e rimosse tutte le note guida, il documento deve essere verificato contro la **Definition of Done** prima di essere congelato come baseline.

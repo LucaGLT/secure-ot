@@ -4,20 +4,18 @@
 
 ### Descrizione Dettagliata dell'Architettura Tecnica
 
-------------------------------------------------------------------------
-
 ### 1. Scopo di questo Addendum
 
 Quesra documento fornisce una descrizione tecnica più approfondita dell'architettura attuale (AS-IS) del test bench.
 
 Completa la descrizione principale del sistema AS-IS fornendo dettagli su:
+
+
 - Componenti hardware
 - Interfacce di controllo
 - Flussi di dati
 - Capacità del Device Under Test (DUT)
 - Limitazioni di integrazione attuali
-
-------------------------------------------------------------------------
 
 ### 2. Inventario degli Asset
 
@@ -33,8 +31,6 @@ handling
 Supports: - Manual setpoint entry - Basic recipe parameters - Status
 visualization - No centralized data storage
 
-------------------------------------------------------------------------
-
 #### 2.2 Sottosistema Pressione
 
 -   High-pressure pump (electrically driven)
@@ -47,8 +43,6 @@ visualization - No centralized data storage
 -   Mechanical pressure switch:
     -   Hardwired to safety relay chain
 
-------------------------------------------------------------------------
-
 #### 2.3 Sottosistema Temperatura
 
 -   Climatic chamber or heating system
@@ -59,38 +53,36 @@ visualization - No centralized data storage
     -   RUN / READY / FAULT digital signals
     -   No coordinated profile management
 
-------------------------------------------------------------------------
-
 #### 2.4 Apparecchiature di Acquisizione Dati
 
 -   Stand-alone industrial data logger
 -   Records pressure and temperature signals
 -   Storage medium:
+
     -   SD card
     -   USB memory
 -   Data format:
+
     -   CSV export
 -   No real-time integration with PLC or HMI
-
-------------------------------------------------------------------------
 
 ### 3. Architettura di Sicurezza (Implementazione Attuale)
 
 -   Safety relay chain (hardwired logic)
--   Inputs include:
-    -   Emergency Stop
-    -   Door interlock
-    -   Mechanical pressure switch
--   Outputs:
-    -   Power removal from pump
-    -   Power removal from heating system
+    -   Inputs include:
+
+        -   Emergency Stop
+        -   Door interlock
+        -   Mechanical pressure switch
+    -   Outputs:
+
+        -   Power removal from pump
+        -   Power removal from heating system
 -   No safety PLC
 -   No software-based safety logic
 -   Safety reset requires local manual interaction
 
 Safety operates independently of PLC logic.
-
-------------------------------------------------------------------------
 
 ### 4. Caratteristiche del Device Under Test (DUT)
 
@@ -99,7 +91,7 @@ intelligence.
 
 #### 4.1 Capacità Funzionali del DUT
 
--   Internal sensor measurements (e.g. pressure, temperature, position,
+-   Internal sensor measurements (e.g. pressure, temperature, position,
     current)
 -   Onboard logging capability
 -   Event recording
@@ -127,8 +119,6 @@ Current state: - API exists but is not integrated into the test bench
 process - No software developed to consume live DUT data - DUT treated
 operationally as a black box until log extraction
 
-------------------------------------------------------------------------
-
 ### 5. Flussi di Dati Attuali
 
 #### 5.1 Durante il Test
@@ -143,8 +133,6 @@ systems.
 
 Synchronization depends on operator actions.
 
-------------------------------------------------------------------------
-
 #### 5.2 Fine del Test
 
 Operator performs:
@@ -152,14 +140,13 @@ Operator performs:
 -   Logger data extraction (USB / SD)
 -   DUT log extraction (SD or Ethernet download)
 -   Manual association of:
+
     -   DUT serial number
     -   Test parameters
     -   Logger files
     -   Temperature profile data
 
 Data aggregation is manual and typically performed using spreadsheets.
-
-------------------------------------------------------------------------
 
 ### 6. Gap di Integrazione Identificati
 
@@ -169,8 +156,6 @@ Data aggregation is manual and typically performed using spreadsheets.
 -   DUT API capability unused
 -   No structured data repository
 -   No networked architecture between assets
-
-------------------------------------------------------------------------
 
 ### 7. Caratteristiche della Linea di Base Architettonica
 

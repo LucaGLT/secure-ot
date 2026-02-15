@@ -2,8 +2,6 @@
 
 ## Descrizione del Test Bench TO-BE
 
-------------------------------------------------------------------------
-
 ### 1. Panoramica
 
 The target system evolves from a manually coordinated test environment
@@ -14,8 +12,6 @@ The objective is to increase repeatability, reduce manual intervention,
 centralize data management, and introduce controlled remote supervision
 while maintaining or improving functional safety.
 
-------------------------------------------------------------------------
-
 ### 2. Architettura di Controllo Target
 
 #### 2.1 Orchestrazione Centralizzata del Processo
@@ -23,6 +19,7 @@ while maintaining or improving functional safety.
 -   A central control logic coordinates all subsystems (pressure,
     temperature, acquisition).
 -   Automated sequencing manages:
+
     -   Ramp profiles
     -   Synchronization between subsystems
     -   Hold phases
@@ -34,6 +31,7 @@ while maintaining or improving functional safety.
 
 -   All subsystems stream data to a centralized repository.
 -   Each test is uniquely identified and associated with:
+
     -   Component ID
     -   Test recipe
     -   Timestamp
@@ -47,8 +45,6 @@ while maintaining or improving functional safety.
 -   Controlled remote access for maintenance (via secure gateway).
 
 Remote control privileges are limited and role-based.
-
-------------------------------------------------------------------------
 
 ### 3. Flusso Operativo
 
@@ -68,8 +64,6 @@ System responsibilities:
 
 Test start is conditional on validation success.
 
-------------------------------------------------------------------------
-
 #### 3.2 Esecuzione Automatizzata del Test
 
 System responsibilities:
@@ -88,8 +82,6 @@ Operator responsibilities:
 
 The operator shifts from executor to supervisor.
 
-------------------------------------------------------------------------
-
 #### 3.3 Fine Test e Reportistica
 
 System responsibilities:
@@ -105,8 +97,6 @@ Operator responsibilities:
 -   Validate or reject test outcome.
 -   Provide final approval.
 
-------------------------------------------------------------------------
-
 ### 4. Architettura di Sicurezza (Stato Target)
 
 -   Safety functions implemented in dedicated safety logic.
@@ -119,8 +109,6 @@ Operator responsibilities:
 -   Remote systems cannot override safety interlocks.
 
 Functional safety remains independent from supervisory systems.
-
-------------------------------------------------------------------------
 
 ### 5. Fondamenti di Sicurezza Informatica
 
@@ -136,8 +124,6 @@ Security principles include:
 
 Cyber controls protect process integrity but do not replace safety
 functions.
-
-------------------------------------------------------------------------
 
 ### 6. Modello di Responsabilità (TO-BE)
 
@@ -164,8 +150,6 @@ functions.
 -   Override unsafe commands.
 -   Force safe state in hazardous conditions.
 -   Require local reset after safety trip.
-
-------------------------------------------------------------------------
 
 ### 7. Caratteristiche Chiave dello Stato Target
 

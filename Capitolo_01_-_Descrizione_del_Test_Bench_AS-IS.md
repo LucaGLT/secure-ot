@@ -1,14 +1,10 @@
 ## Descrizione del Test Bench AS-IS
 
-------------------------------------------------------------------------
-
 ### 1. Panoramica
 
 Il sistema attuale consiste in più test bench industriali utilizzati per la verifica di componenti meccanici in condizioni critiche di pressione e temperatura. L'architettura di controllo è principalmente basata su sistemi PLC locali senza connettività remota.
 
 Le operazioni sono prevalentemente manuali e coordinate direttamente dagli operatori.
-
-------------------------------------------------------------------------
 
 ### 2. Architettura di Controllo
 
@@ -23,9 +19,7 @@ Le operazioni sono prevalentemente manuali e coordinate direttamente dagli opera
 
 -   Nessuna supervisione remota via PC o tablet.
 -   Nessuna connettività esterna a reti aziendali o esterne.
--   Il sistema è effettivamente isolato dall'infrastruttura IT.
-
-------------------------------------------------------------------------
+    -   Il sistema è effettivamente isolato dall'infrastruttura IT.
 
 ### 3. Flusso Operativo
 
@@ -51,17 +45,13 @@ Alla fine di ogni test:
 
 Non esiste una correlazione automatica tra ID del test, ID del componente e dati di misurazione.
 
-------------------------------------------------------------------------
-
 ### 4. Gestione dei Dati e Reportistica
 
 -   I dati vengono elaborati manualmente.
 -   I report vengono creati utilizzando fogli di calcolo (ad es. Excel).
 -   La copia-incolla e i calcoli manuali sono comuni.
 -   La tracciabilità dipende dalla disciplina dell'operatore.
--   Non esiste un repository centralizzato o un database strutturato.
-
-------------------------------------------------------------------------
+    -   Non esiste un repository centralizzato o un database strutturato.
 
 ### 5. Caratteristiche di Sicurezza (Stato Attuale)
 
@@ -74,8 +64,6 @@ Non esiste una correlazione automatica tra ID del test, ID del componente e dati
 
 La sicurezza dipende fortemente dalla supervisione umana.
 
-------------------------------------------------------------------------
-
 ### 6. Esposizione alla Sicurezza Informatica (Stato Attuale)
 
 -   Superficie di attacco minima dovuta all'isolamento del sistema.
@@ -84,8 +72,6 @@ La sicurezza dipende fortemente dalla supervisione umana.
 -   Nessuna infrastruttura digitale centralizzata da compromettere.
 
 Il rischio informatico è attualmente basso perché la connettività è assente.
-
-------------------------------------------------------------------------
 
 ### 7. Modello di Responsabilità (AS-IS)
 
@@ -109,8 +95,6 @@ L'operatore agisce come orchestratore primario del processo.
 -   Attivare protezioni locali di base
 
 Il sistema esegue ma non governa il processo complessivo.
-
-------------------------------------------------------------------------
 
 ### 8. Osservazioni Chiave
 

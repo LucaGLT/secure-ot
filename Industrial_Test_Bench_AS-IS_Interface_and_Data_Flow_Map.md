@@ -2,43 +2,44 @@
 
 ## AS-IS Interface and Data Flow Map
 
-------------------------------------------------------------------------
-
 ## 1. Scope
 
 This document maps the **interfaces** and **data flows** of the current
-(AS-IS) industrial test bench architecture, including: - Control
-interfaces (signals and command paths) - Measurement paths - Data
-logging/export paths - Device Under Test (DUT) data interfaces
-(including the currently unused API)
+(AS-IS) industrial test bench architecture, including:
+
+- Control interfaces (signals and command paths)
+- Measurement paths
+- Data logging/export paths
+- Device Under Test (DUT) data interfaces (including the currently unused API)
 
 The goal is to provide a concrete baseline for deriving TO-BE
 architectural requirements.
 
-------------------------------------------------------------------------
-
 ## 2. System Boundary (AS-IS)
 
-Included assets: - PLC (local control) - Local HMI - Pressure subsystem
-(pump, valves, pressure transducer, mechanical pressure switch) -
-Temperature subsystem (stand-alone controller + chamber/heater) -
-Stand-alone data logger - DUT with onboard intelligence and logging -
-Operator actions (manual coordination and data extraction)
+Included assets:
 
-Excluded (AS-IS): - Remote access (PC/tablet supervision) - Central
-server / historian / database - Automated report generation pipeline -
-OT network segmentation (no OT network in practice)
+- PLC (local control)
+- Local HMI
+- Pressure subsystem (pump, valves, pressure transducer, mechanical pressure switch)
+- Temperature subsystem (stand-alone controller + chamber/heater)
+- Stand-alone data logger
+- DUT with onboard intelligence and logging
+- Operator actions (manual coordination and data extraction)
 
-------------------------------------------------------------------------
+Excluded (AS-IS):
+
+- Remote access (PC/tablet supervision)
+- Central server / historian / database
+- Automated report generation pipeline
+- OT network segmentation (no OT network in practice)
 
 ## 3. Interface Map (Physical / Logical)
 
 ### 3.1 Control and Safety Interfaces (Signals)
 
-  -----------------------------------------------------------------------------------------------------
   Interface   From         To               Type       Signal /    Purpose            Notes
   ID                                                   Protocol                       
-  ----------- ------------ ---------------- ---------- ----------- ------------------ -----------------
   IF-01       HMI          PLC              Fieldbus   Profinet    Operator command   Local only
                                                        (HMI        entry, setpoints   
                                                        runtime)                       
@@ -82,16 +83,11 @@ OT network segmentation (no OT network in practice)
                                                                    measurement        PLC in AS-IS
 
 
-  -----------------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------
 
 ### 3.2 Data Acquisition Interfaces (Measurement to Logger)
 
-  --------------------------------------------------------------------------------------
   Interface   From         To         Type       Signal /   Data          Notes
   ID                                             Protocol                 
-  ----------- ------------ ---------- ---------- ---------- ------------- --------------
   IF-20       Pressure     Data       Analog     4--20 mA / Pressure      Logger wiring
               transducer   logger                0--10V     trend         varies by
               (or PLC                                                     bench
@@ -106,16 +102,11 @@ OT network segmentation (no OT network in practice)
   IF-22       Auxiliary    Data       Mixed      Analog /   Optional      Not
               sensors (if  logger                Digital    signals       standardized
               any)                                                        
-  --------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------
 
 ### 3.3 Data Export Interfaces (Files)
 
-  ------------------------------------------------------------------------------------------------------
   Interface   From         To         Medium      Format              Timing          Notes
   ID                                                                                  
-  ----------- ------------ ---------- ----------- ------------------- --------------- ------------------
   IF-30       Data logger  Operator   SD / USB    CSV                 End of test     Manual extraction
 
   IF-31       HMI (values) Operator   Manual      Notes / photo /     Any time        Often
@@ -135,16 +126,11 @@ OT network segmentation (no OT network in practice)
   IF-35       Operator     Report     PC          Excel workbook      Post-test       Manual aggregation
                            Template   (offline)                
 
-  ------------------------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------
 
 ### 3.4 DUT Real-Time Data Interface (Present but NOT used)
 
-  --------------------------------------------------------------------------------------
   Interface   From       To         Protocol    Capability      Status in  Risk/Note
   ID                                                            AS-IS      
-  ----------- ---------- ---------- ----------- --------------- ---------- -------------
   IF-40       DUT        External   REST/HTTP   Read live       Not used   Requires
                          client     or TCP      measurements,              client
                                                 status, event              software +
@@ -154,9 +140,6 @@ OT network segmentation (no OT network in practice)
   IF-41       External   DUT        REST/HTTP   Start/stop      Not used   Must be
      client       or TCP      logging, fetch  constrained  partial logs               to avoid  unintended      control
 
-  --------------------------------------------------------------------------------------
-
-------------------------------------------------------------------------
 
 ## 4. Data Flow Map (End-to-End)
 
@@ -173,8 +156,6 @@ locally configured profile. - PLC may receive coarse READY/FAULT states
 **DF-03 Trending and recording** - Data logger records pressure and
 temperature channels. - DUT records its own internal sensors
 independently. - There is no shared test identifier across sources.
-
-------------------------------------------------------------------------
 
 ### 4.2 End of Test Data Flows
 
@@ -193,8 +174,6 @@ profile or trend file, sometimes in vendor format.
 serial/batch - test parameters (HMI notes/recipe) - logger CSV
 (pressure/temp) - DUT log file(s) - controller export (optional) -
 Report is built in Excel (copy/paste, calculations, charts).
-
-------------------------------------------------------------------------
 
 ## 5. Correlation Points and Gaps
 
@@ -217,8 +196,6 @@ Report is built in Excel (copy/paste, calculations, charts).
 -   Data is multi-source and post-correlated manually.
 -   DUT API capability is unused, preventing near-real-time integration.
 
-------------------------------------------------------------------------
-
 ## 6. Operator Touchpoints
 
 -   Start/stop sequencing across multiple devices.
@@ -229,8 +206,6 @@ Report is built in Excel (copy/paste, calculations, charts).
 
 These touchpoints are the main operational variability and error sources
 in the AS-IS model.
-
-------------------------------------------------------------------------
 
 ## 7. Summary Diagram (Textual)
 
@@ -248,8 +223,6 @@ Operator - Operator → Excel → Report
 
 **Unused Capability** - DUT API (live data) exists but is not part of
 the operational workflow.
-
-------------------------------------------------------------------------
 
 ## 8. Baseline Drivers for TO-BE
 

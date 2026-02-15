@@ -4,8 +4,6 @@
 
 ### Rapporto di Valutazione del GAP AS-IS rispetto al Security Level Target (SL2)
 
-------------------------------------------------------------------------
-
 # 1. Scopo del Documento
 
 This document provides a formal GAP Analysis of the current AS-IS
@@ -24,8 +22,6 @@ The objective is to:
 
 This report is structured in alignment with IEC 62443 assessment
 methodology.
-
-------------------------------------------------------------------------
 
 # 2. Spiegazione dei Termini Chiave di IEC 62443
 
@@ -60,8 +56,6 @@ The seven FR categories are:
 -   FR6 -- Timely Response to Events (TRE)
 -   FR7 -- Resource Availability (RA)
 
-------------------------------------------------------------------------
-
 # 3. Definizione del Sistema (IEC 62443-3-2)
 
 ## 3.1 Asset Identificati (AS-IS)
@@ -76,8 +70,6 @@ The seven FR categories are:
 
 No formally defined OT network architecture exists in AS-IS
 configuration.
-
-------------------------------------------------------------------------
 
 ## 3.2 Modello Preliminare di Zone (Concettuale)
 
@@ -103,8 +95,6 @@ Conduits in AS-IS are mostly physical/manual (USB, SD, direct Ethernet
 cable).\
 No logical conduits or segmentation are formally defined.
 
-------------------------------------------------------------------------
-
 # 4. Determinazione del Security Level Target
 
 Based on:
@@ -125,11 +115,7 @@ SL2 provides protection against:
 -   Generic malware
 -   Insider misuse scenarios
 
-------------------------------------------------------------------------
-
 # 5. IEC 62443-3-3 Foundational Requirement Assessment
-
-------------------------------------------------------------------------
 
 ## FR1 -- Identification & Authentication Control (IAC)
 
@@ -142,8 +128,6 @@ control
 Assessment: SL-A ≈ 0\
 Gap: High
 
-------------------------------------------------------------------------
-
 ## FR2 - Controllo d'Uso (UC)
 
 AS-IS: - No role-based access control - No privilege separation
@@ -153,8 +137,6 @@ privilege
 
 Assessment: SL-A ≈ 0\
 Gap: High
-
-------------------------------------------------------------------------
 
 ## FR3 - Integrità del Sistema (SI)
 
@@ -167,8 +149,6 @@ Integrity assurance mechanisms - Controlled update procedures
 Assessment: SL-A ≈ 0\
 Gap: High
 
-------------------------------------------------------------------------
-
 ## FR4 - Riservatezza dei Dati (DC)
 
 AS-IS: - Data stored in plain CSV - No encryption - Removable media
@@ -179,8 +159,6 @@ required
 
 Assessment: SL-A ≈ 0\
 Gap: Medium
-
-------------------------------------------------------------------------
 
 ## FR5 - Flussi di Dati Limitati (RDF)
 
@@ -193,8 +171,6 @@ segmentation
 Assessment: SL-A ≈ 0\
 Gap: High
 
-------------------------------------------------------------------------
-
 ## FR6 - Risposta Tempestiva agli Eventi (TRE)
 
 AS-IS: - No security event logging - No monitoring - No incident
@@ -206,8 +182,6 @@ response procedure
 Assessment: SL-A ≈ 0\
 Gap: High
 
-------------------------------------------------------------------------
-
 ## FR7 - Disponibilità delle Risorse (RA)
 
 AS-IS: - No resilience evaluation - No resource exhaustion protection -
@@ -218,8 +192,6 @@ Availability protection mechanisms
 
 Assessment: SL-A ≈ 0--1\
 Gap: Medium
-
-------------------------------------------------------------------------
 
 # 6. Sicurezza a Livello di Componente (IEC 62443-4-2)
 
@@ -235,8 +207,6 @@ Component SL-C not formally determined.
 
 Gap: Component security lifecycle absent.
 
-------------------------------------------------------------------------
-
 # 7. Valutazione del Programma di Sicurezza (IEC 62443-2-1)
 
 AS-IS: - No documented cybersecurity policy - No asset inventory - No
@@ -249,13 +219,9 @@ integration
 
 Gap: Organizational security program not implemented.
 
-------------------------------------------------------------------------
-
 # 8. Valutazione Complessiva del Security Level
 
-  ------------------------------------------------------------------------
   Foundational Requirement    SL-A (Actual)  SL-T (Target)  Gap Severity
-  --------------------------- -------------- -------------- --------------
   FR1 -- IAC                  0              2              High
 
   FR2 -- UC                   0              2              High
@@ -269,13 +235,10 @@ Gap: Organizational security program not implemented.
   FR6 -- TRE                  0              2              High
 
   FR7 -- RA                   0--1           2              Medium
-  ------------------------------------------------------------------------
 
 Overall AS-IS maturity level approximates SL0--SL1.
 
 Target maturity level: SL2.
-
-------------------------------------------------------------------------
 
 # 9. Conclusione Esecutiva
 

@@ -4,8 +4,6 @@
 
 ### Focus sull'Evoluzione delle Responsabilità dell'Operatore
 
-------------------------------------------------------------------------
-
 ### 1. Introduzione
 
 This document analyzes the transition from the current (AS-IS) manually
@@ -15,8 +13,6 @@ supervised platform.
 Particular attention is given to the evolution of the Operator's
 responsibilities and the redistribution of accountability between Human,
 System, and Safety Logic.
-
-------------------------------------------------------------------------
 
 ### 2. Trasformazione Strutturale della Responsabilità
 
@@ -28,82 +24,91 @@ In the AS-IS model: The Operator is the process orchestrator.
 In the TO-BE model: The System becomes the process orchestrator, while
 the Operator becomes supervisor and decision authority.
 
-------------------------------------------------------------------------
-
 ### 3. Mappatura della Responsabilità
 
 #### 3.1 Coordinamento del Processo
 
-AS-IS: - Operator manually starts subsystems. - Operator synchronizes
-pressure, temperature, and acquisition. - Coordination exists
-cognitively.
+AS-IS:
 
-TO-BE: - System executes synchronized sequences. - Operator authorizes
-start but does not manage timing. - Coordination is algorithmic and
-deterministic.
+- Operator manually starts subsystems.
+- Operator synchronizes pressure, temperature, and acquisition.
+- Coordination exists cognitively.
+
+TO-BE:
+
+- System executes synchronized sequences.
+- Operator authorizes start but does not manage timing.
+- Coordination is algorithmic and deterministic.
 
 Impact: Responsibility shifts from human memory and skill to validated
 and testable control logic.
 
-------------------------------------------------------------------------
-
 #### 3.2 Validazione dei Parametri
 
-AS-IS: - Operator verifies setpoints. - Risk of omission or
-misconfiguration.
+AS-IS:
 
-TO-BE: - System validates configuration automatically. - Interlocks
-prevent unsafe or inconsistent conditions. - Operator confirms but does
-not compute.
+- Operator verifies setpoints.
+- Risk of omission or misconfiguration.
+
+TO-BE:
+
+- System validates configuration automatically.
+- Interlocks prevent unsafe or inconsistent conditions.
+- Operator confirms but does not compute.
 
 Impact: Reduction of configuration-related human error.
 
-------------------------------------------------------------------------
-
 #### 3.3 Monitoraggio Durante il Test
 
-AS-IS: - Operator continuously monitors all instruments. - Detection of
-anomalies depends on vigilance.
+AS-IS:
 
-TO-BE: - System continuously monitors process variables. - Automated
-alarms and threshold detection. - Operator supervises alarms rather than
-raw signals.
+- Operator continuously monitors all instruments.
+- Detection of anomalies depends on vigilance.
+
+TO-BE:
+
+- System continuously monitors process variables.
+- Automated alarms and threshold detection.
+- Operator supervises alarms rather than raw signals.
 
 Impact: Shift from active manual control to supervisory control.
 
-------------------------------------------------------------------------
-
 #### 3.4 Gestione dei Dati
 
-AS-IS: - Manual data extraction. - Manual aggregation. - Manual report
-construction.
+AS-IS:
 
-TO-BE: - Automatic data collection. - Structured storage. - Automated
-report generation. - Operator validates final output.
+- Manual data extraction.
+- Manual aggregation.
+- Manual report construction.
+
+TO-BE:
+
+- Automatic data collection.
+- Structured storage.
+- Automated report generation.
+- Operator validates final output.
 
 Impact: Responsibility shifts from data processing to result validation.
 
-------------------------------------------------------------------------
-
 #### 3.5 Supervisione della Sicurezza
 
-AS-IS: - Safety largely procedural and operator-driven. - Local
-protections may exist but global coordination is human.
+AS-IS:
 
-TO-BE: - Safety functions implemented in independent logic. - Automatic
-trip and safe state enforcement. - Operator cannot override critical
-safety functions remotely.
+- Safety largely procedural and operator-driven.
+- Local protections may exist but global coordination is human.
+
+TO-BE:
+
+- Safety functions implemented in independent logic.
+- Automatic trip and safe state enforcement.
+- Operator cannot override critical safety functions remotely.
 
 Impact: Safety authority moves from operator reaction to deterministic
 safety enforcement.
 
-------------------------------------------------------------------------
-
 ### 4. Tabella Sintetica della Ridistribuzione della Responsabilità
 
-  ------------------------------------------------------------------------
   Activity        AS-IS        TO-BE       Responsibility Shift
-  --------------- ------------ ----------- -------------------------------
   Subsystem       Operator     System      Human → Algorithm
   coordination                             
 
@@ -124,9 +129,6 @@ safety enforcement.
 
   Safety trip     Operator +   Safety      Human → Deterministic Logic
   enforcement     Local        System      
-  ------------------------------------------------------------------------
-
-------------------------------------------------------------------------
 
 ### 5. Nuova Definizione del Ruolo dell'Operatore
 
@@ -140,8 +142,6 @@ In the TO-BE scenario, the Operator becomes:
 The Operator is no longer the process synchronizer, but remains the
 accountable human decision-maker.
 
-------------------------------------------------------------------------
-
 ### 6. Implicazioni Emergenti
 
 The redistribution of responsibility introduces new requirements:
@@ -153,8 +153,6 @@ The redistribution of responsibility introduces new requirements:
 
 The transformation reduces operational variability, but increases
 dependence on system integrity.
-
-------------------------------------------------------------------------
 
 ### 7. Principio Fondamentale della Trasformazione
 
