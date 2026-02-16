@@ -115,84 +115,225 @@ SL2 fornisce protezione contro:
 - Malware generico
 - Scenari di abuso da parte di insider
 
-### 5. IEC 62443-3-3 Foundational Requirement Assessment
+### 5. IEC 62443-3-3 Foundational Requirement Assessment e Requisiti TO-BE
 
 #### FR1 -- Identification & Authentication Control (IAC)
 
-AS-IS: - Nessuna autenticazione strutturata su PLC/HMI - Nessuna identità utente
-unica - Autenticazione API DUT non definita
+##### Stato AS-IS
 
-Requisito SL2: - ID utente univoci - Meccanismi di autenticazione - Controllo
-sessione
+- Nessuna autenticazione strutturata su PLC/HMI
+- Nessuna identità utente unica
+- Autenticazione API DUT non definita
 
-Valutazione: SL-A ≈ 0
-Gap: Alto
+##### Requisiti SL2
 
-#### FR2 - Controllo d'Uso (UC)
+- ID utente univoci
+- Meccanismi di autenticazione robusti
+- Controllo e gestione delle sessioni
 
-AS-IS: - Nessun controllo accessi basato sui ruoli - Nessuna separazione dei
-privilegi
+##### Valutazione
 
-Requisito SL2: - Controllo accessi basato sui ruoli (RBAC) - Principio del minimo
-privilegio
+- SL-A ≈ 0
+- Gap Severity: **Alto**
 
-Valutazione: SL-A ≈ 0
-Gap: Alto
+##### Implicazioni Architetturali TO-BE
 
-#### FR3 - Integrità del Sistema (SI)
+- Implementazione di un sistema di autenticazione su HMI/IPC
+- Introduzione di identità per-device per comunicazioni verso backend
+- Gestione controllata delle sessioni (timeout, rinnovo, chiusura)
+- Autenticazione delle API del DUT con credenziali dedicate
+- Meccanismi di strong authentication (es. password policy, multi-factor dove applicabile)
 
-AS-IS: - Nessuna verifica di integrità - Nessuna gestione formale della
-configurazione - Nessun processo di aggiornamento controllato
+#### FR2 -- Use Control (UC)
 
-Requisito SL2: - Protezione contro modifiche non autorizzate -
-Meccanismi di garanzia dell'integrità - Procedure di aggiornamento controllate
+##### Stato AS-IS
 
-Valutazione: SL-A ≈ 0
-Gap: Alto
+- Nessun controllo accessi basato sui ruoli
+- Nessuna separazione dei privilegi
+- Accesso completo a tutte le funzioni per chiunque
 
-#### FR4 - Riservatezza dei Dati (DC)
+##### Requisiti SL2
 
-AS-IS: - Dati memorizzati in CSV in chiaro - Nessuna crittografia - Media
-rimovibili non controllati
+- Controllo accessi basato sui ruoli (RBAC)
+- Principio del minimo privilegio
+- Enforcement dei diritti di accesso
 
-Requisito SL2: - Protezione dei dati sensibili - Crittografia dove
-richiesto
+##### Valutazione
 
-Valutazione: SL-A ≈ 0
-Gap: Medio
+- SL-A ≈ 0
+- Gap Severity: **Alto**
 
-#### FR5 - Flussi di Dati Limitati (RDF)
+##### Implicazioni Architetturali TO-BE
 
-AS-IS: - Nessuna segmentazione di rete - Nessun firewall o controllo condotti -
-Accesso Ethernet diretto al DUT
+- Definizione di un modello RBAC esplicito con ruoli:
+  - **Operatore**: avvio test, supervisione, lettura dati
+  - **Manutentore**: diagnostica, configurazione parametri non critici
+  - **Amministratore**: gestione sistema, configurazioni di sicurezza
+- Enforcement applicativo dei privilegi a livello HMI/IPC
+- Separazione tra funzioni operative e funzioni di configurazione
+- Logging degli accessi privilegiati
 
-Requisito SL2: - Zone definite - Condotti controllati - Segmentazione
-logica
+#### FR3 -- System Integrity (SI)
 
-Valutazione: SL-A ≈ 0
-Gap: Alto
+##### Stato AS-IS
 
-#### FR6 - Risposta Tempestiva agli Eventi (TRE)
+- Nessuna verifica di integrità firmware/software
+- Nessuna gestione formale della configurazione
+- Nessun processo di aggiornamento controllato
+- Configurazioni modificabili senza tracciabilità
 
-AS-IS: - Nessun logging degli eventi di sicurezza - Nessun monitoraggio - Nessun
-processo di risposta agli incidenti
+##### Requisiti SL2
 
-Requisito SL2: - Event logging - Capacità di allerta - Procedura di
-risposta definita
+- Protezione contro modifiche non autorizzate
+- Meccanismi di garanzia dell'integrità
+- Procedure di aggiornamento controllate e verificabili
 
-Valutazione: SL-A ≈ 0
-Gap: Alto
+##### Valutazione
 
-#### FR7 - Disponibilità delle Risorse (RA)
+- SL-A ≈ 0
+- Gap Severity: **Alto**
 
-AS-IS: - Nessuna valutazione di resilienza - Nessuna protezione dall'esaurimento
-delle risorse - Nessun meccanismo watchdog definito
+##### Implicazioni Architetturali TO-BE
 
-Requisito SL2: - Resilienza di base a scenari denial-of-service -
-Meccanismi di protezione della disponibilità
+- Introduzione di **Root of Trust** a livello hardware/firmware
+- Implementazione di **Secure Boot** con verifica crittografica delle immagini
+- Meccanismo di aggiornamento firmware autenticato e firmato digitalmente
+- Protezione dell'integrità delle configurazioni critiche (checksum, firma)
+- Versioning formale delle configurazioni
+- Meccanismi di rollback controllato in caso di corruzione
+- Protezione anti-tampering per parametri di sicurezza
 
-Valutazione: SL-A ≈ 0--1
-Gap: Medio
+#### FR4 -- Data Confidentiality (DC)
+
+##### Stato AS-IS
+
+- Dati memorizzati in CSV in chiaro
+- Nessuna crittografia dei dati sensibili
+- Media rimovibili (USB/SD) non controllati
+- Nessuna classificazione dei dati
+
+##### Requisiti SL2
+
+- Protezione dei dati sensibili in transito e a riposo
+- Crittografia dove necessario
+- Controllo dell'accesso ai dati
+
+##### Valutazione
+
+- SL-A ≈ 0
+- Gap Severity: **Medio**
+
+##### Implicazioni Architetturali TO-BE
+
+- **Classificazione dei dati** per livello di sensibilità:
+  - Dati di processo pubblici (temperature, pressioni aggregate)
+  - Dati sensibili (ricette, configurazioni, credenziali)
+- Cifratura dei dati sensibili in transito (TLS/DTLS per comunicazioni di rete)
+- Cifratura opzionale dei dati a riposo per configurazioni critiche
+- Politica di gestione e controllo dei supporti rimovibili:
+  - Logging degli accessi
+  - Disabilitazione selettiva ove non necessario
+- Protezione delle credenziali (no plaintext storage)
+
+#### FR5 -- Restricted Data Flow (RDF)
+
+##### Stato AS-IS
+
+- Nessuna segmentazione di rete formale
+- Nessun firewall o controllo dei condotti
+- Accesso Ethernet diretto al DUT senza controlli
+- Condotti fisici non controllati (USB/SD)
+
+##### Requisiti SL2
+
+- Zone e Conduits formalmente definiti
+- Controllo dei flussi tra zone
+- Segmentazione logica della rete
+
+##### Valutazione
+
+- SL-A ≈ 0
+- Gap Severity: **Alto**
+
+##### Implicazioni Architetturali TO-BE
+
+- **Formalizzazione del modello Zone & Conduits**:
+  - **Z1 (Zona Controllo Base)**: PLC, HMI locale, controller temperatura
+  - **Z2 (Zona DUT)**: Device Under Test isolato
+  - **Z3 (Zona Supervisiva)**: IPC/SCADA, repository dati
+  - **Z4 (Zona IT Enterprise)**: PC reportistica, rete aziendale
+- Separazione fisica o logica (VLAN) tra le zone
+- Introduzione di **firewall industriale** o ACL tra zone
+- Gateway sicuro per accesso remoto (no connessioni dirette dall'esterno)
+- Whitelist delle comunicazioni ammesse tra zone
+- Monitoraggio del traffico anomalo sui condotti
+- Controllo degli accessi ai media rimovibili
+
+#### FR6 -- Timely Response to Events (TRE)
+
+##### Stato AS-IS
+
+- Nessun logging degli eventi di sicurezza
+- Nessun sistema di monitoraggio
+- Nessun processo di risposta agli incidenti
+- Eventi non tracciati né correlabili
+
+##### Requisiti SL2
+
+- Event logging degli eventi di sicurezza rilevanti
+- Capacità di rilevazione e allerta
+- Procedura di risposta definita
+
+##### Valutazione
+
+- SL-A ≈ 0
+- Gap Severity: **Alto**
+
+##### Implicazioni Architetturali TO-BE
+
+- Implementazione di **logging locale** degli eventi critici:
+  - Tentativi di autenticazione (successi e fallimenti)
+  - Modifiche configurazione
+  - Comandi critici inviati
+  - Allarmi di sicurezza
+  - Accessi ai dati sensibili
+- Timestamping affidabile degli eventi (sincronizzazione tempo)
+- Meccanismo di **forwarding sicuro** dei log verso sistema di supervisione/SIEM
+- Protezione dell'integrità dei log (append-only, firma)
+- Capacità di alerting per eventi critici (locale e remoto)
+- Architettura predisposta per integrazione con processi di **incident response**
+- Retention policy dei log coerente con requisiti normativi
+
+#### FR7 -- Resource Availability (RA)
+
+##### Stato AS-IS
+
+- Nessuna valutazione di resilienza
+- Nessuna protezione dall'esaurimento delle risorse
+- Nessun meccanismo watchdog formalmente definito
+- Vulnerabilità potenziale a DoS non valutata
+
+##### Requisiti SL2
+
+- Resilienza di base a scenari denial-of-service
+- Meccanismi di protezione della disponibilità
+- Recovery da condizioni anomale
+
+##### Valutazione
+
+- SL-A ≈ 0-1 (alcuni dispositivi hanno watchdog hardware base)
+- Gap Severity: **Medio**
+
+##### Implicazioni Architetturali TO-BE
+
+- Introduzione di **watchdog hardware e software** su componenti critici
+- Meccanismi di **timeout** su tutte le comunicazioni di rete
+- **Rate limiting** su interfacce esposte (API, servizi di rete)
+- Gestione controllata delle **connessioni concorrenti** (max connection limit)
+- Monitoraggio delle risorse critiche (CPU, memoria, storage)
+- Meccanismi di **graceful degradation** (degradazione controllata in caso di sovraccarico)
+- Separazione tra traffico operativo e traffico di gestione
+- Testing di resilienza a condizioni di stress/flood
 
 ### 6. Sicurezza a Livello di Componente (IEC 62443-4-2)
 
@@ -231,31 +372,77 @@ Gap: Programma di sicurezza organizzativo non implementato.
 | FR5 -- RDF               | 0             | 2             | High         |
 | FR6 -- TRE               | 0             | 2             | High         |
 | FR7 -- RA                | 0--1          | 2             | Medium       |
+| Livelo Complessivo       | 0--1          | 2             | Medium--High |
 
-Il livello di maturità complessivo AS-IS approssima SL0--SL1.
+**Leggenda**
 
-Livello di maturità target: SL2.
+- FR1 -- Identification and Authentication Control (IAC)
+- FR2 -- Use Control (UC)
+- FR3 -- System Integrity (SI)
+- FR4 -- Data Confidentiality (DC)
+- FR5 -- Restricted Data Flow (RDF)
+- FR6 -- Timely Response to Events (TRE)
+- FR7 -- Resource Availability (RA)
 
-### 9. Conclusione Esecutiva
+### 9. Conclusione Esecutiva e Roadmap AS-IS → TO-BE
+
+#### 9.1 Sintesi della Gap Analysis
 
 La configurazione attuale del test bench industriale:
 
-- È fisicamente sicura ma cyber-immatura
-- Manca di zone e condotti definiti
-- Non ha un modello di autenticazione o controllo accessi
-- Manca di meccanismi di protezione dell'integrità
-- Non ha monitoraggio degli eventi di sicurezza
-- Non ha un programma formale di governance della cybersecurity
+- **È fisicamente sicura ma cyber-immatura**: SL-A complessivo ≈ 0-1
+- **Manca di zone e condotti definiti**: nessuna segmentazione formale
+- **Non ha un modello di autenticazione o controllo accessi**: accesso non controllato
+- **Manca di meccanismi di protezione dell'integrità**: no secure boot, no verifica firmware
+- **Non ha monitoraggio degli eventi di sicurezza**: visibilità cyber assente
+- **Non ha un programma formale di governance della cybersecurity**: processo ad-hoc
 
-Per raggiungere la conformità SL2 secondo IEC 62443, l'architettura TO-BE deve
-introdurre:
+#### 9.2 Requisiti Architetturali per SL2
 
-- Segmentazione formale di zone e condotti
-- Meccanismi di identificazione e controllo accessi
-- Controlli di integrità del sistema
-- Event logging e monitoraggio
-- Integrazione sicura dell'API del DUT
-- Governance del ciclo di vita della sicurezza allineata a IEC 62443-2-1
+Per raggiungere la conformità **SL-T = 2** secondo IEC 62443, l'architettura TO-BE deve implementare quanto segue.
 
-Questa analisi GAP costituisce la baseline formale per la migrazione strutturata
-verso la conformità IEC 62443 SL2.
+##### Requisiti di Sistema (IEC 62443-3-3)
+
+- Segmentazione formale di zone e condotti con controllo dei flussi
+- Sistema di identificazione e autenticazione degli utenti e dei dispositivi
+- Modello RBAC con separazione dei privilegi
+- Controlli di integrità del sistema (Secure Boot, firmware autenticato)
+- Classificazione e protezione dei dati sensibili
+- Event logging e capacità di detection/response
+- Meccanismi di resilienza e protezione della disponibilità
+
+##### Requisiti di Componente (IEC 62443-4-2)
+
+- Hardening baseline per PLC, HMI, IPC
+- Gestione sicura del ciclo di vita dei componenti
+- Patch management strutturato
+
+##### Requisiti Organizzativi (IEC 62443-2-1)
+
+- Policy di cybersecurity documentata
+- Inventario degli asset e classificazione
+- Gestione delle vulnerabilità e delle patch
+- Piano di risposta agli incidenti
+- Ruoli e responsabilità definiti
+- Programma di formazione
+
+#### 9.3 Tracciabilità dei Requisiti
+
+Tutti i requisiti architetturali identificati in questo documento devono essere tracciabili verso:
+
+- **Upstream**: Foundational Requirements IEC 62443-3-3 e GAP identificati
+- **Downstream**: Decisioni progettuali nel documento "Cybersecurity Architecture Definition"
+
+La matrice di tracciabilità deve garantire che ogni gap critico (severity: High) sia indirizzato da almeno una misura architettonica nel TO-BE.
+
+#### 9.4 Principi Guida per il TO-BE
+
+1. **Defense in Depth**: implementare controlli multipli e complementari
+2. **Least Privilege**: limitare accessi e privilegi al minimo necessario
+3. **Separation of Concerns**: separare controllo processo, sicurezza funzionale e cybersecurity
+4. **Secure by Design**: integrare la sicurezza fin dalla fase di progettazione
+5. **Resilience**: garantire continuità operativa anche in presenza di eventi cyber
+
+**Questa analisi GAP costituisce la Requirement Baseline formale per la migrazione strutturata verso la conformità IEC 62443 SL2.**
+
+Il documento successivo "Cybersecurity Architecture Definition – Risk-Informed Baseline for Embedded Industrial Systems" tradurrà questi requisiti in decisioni architetturali concrete.
