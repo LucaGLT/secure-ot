@@ -198,6 +198,100 @@ Nessun condotto logico o segmentazione di rete sono formalmente definiti.
 **Nota:** Il modello formale completo con definizione dettagliata delle zone, dei conduits (C1-C4), delle regole di flusso e dei requisiti di sicurezza è presentato nella sezione **FR5 – Restricted Data Flow**.
 :::
 
+##### 3.2.3 Vista d'Insieme: Diagramma Zone & Conduits
+
+Il seguente diagramma fornisce una rappresentazione visuale complessiva del modello di segmentazione Zone & Conduits per il sistema Industrial Test Bench secondo IEC 62443-3-2.
+
+I dettagli implementativi completi di ciascuna zona e conduit, inclusi i controlli di sicurezza specifici e i requisiti SL2 associati, sono approfonditi nella sezione FR5 (§5.5).
+
+```mermaid
+graph TB
+    subgraph DOMINIO_OT["DOMINIO Operational"]
+        direction TB
+        
+        subgraph Z1["Z1-Controllo (SL:Critical)"]
+            PLC["PLC<br/>Siemens S7-1200"]
+            HMI["HMI/IPC<br/>Locale"]
+            TC["Controller<br/>Temperatura"]
+            DL["Datalogger"]
+        end
+        
+        subgraph Z2["Z2-DuT (UnTrust)"]
+            DUT["DUT<br/>Device Under Test<br/>API Ethernet"]
+        end
+        
+        subgraph Z3["Z3-Superv. (SL:Medium)"]
+            SCADA["IPC/SCADA<br/>Supervisione"]
+            DB["Repository<br/>Dati Centrale"]
+        end
+    end
+    
+    subgraph DOMINIO_IT["DOMINIO Information"]
+        subgraph Z4["Z4-IT_Enterprise (UnTrust)"]
+            PC["PC<br/>Reportistica"]
+            NET["Rete<br/>Aziendale"]
+            BACKEND["Backend<br/>Enterprise"]
+        end
+    end
+    
+    subgraph EXTERNAL["ACCESSO ESTERNO"]
+        MAINT["Manutenzione<br/>Remota"]
+    end
+    
+    %% Conduits con controlli di sicurezza
+    Z1 <-->|"C1: Controllo-DUT<br/>✓ Auth reciproca<br/>✓ API whitelist<br/>✓ Logging"| Z2
+    
+	Z1 -->|"C2: Controllo-Supervisione<br/>✓ Integrità dati<br/>✓ Flusso unidirezionale<br/>✓ Logging"| Z3
+    
+	Z3 <-->|"C3: OT-IT Gateway<br/>🔥 Firewall industriale<br/>✓ Auth + Cifratura<br/>✓ NAT/DMZ<br/>✓ Traffic monitoring"| Z4
+    
+	MAINT -.->|"C4: Accesso Manutenzione<br/>✓ Temporaneo<br/>✓ MFA<br/>✓ Audit completo"| Z1
+    
+	MAINT -.->|"C4: Accesso Manutenzione<br/>✓ Temporaneo<br/>✓ MFA<br/>✓ Audit completo"| Z3
+    
+    %% Evidenziazione NO COMMUNICATION (linea tratteggiata per indicare divieto)
+    Z2 -.-|"❌ VIETATO<br/>No comunicazione diretta"| Z4
+    
+    %% Styling
+    classDef zoneControl fill:#e1f5e1,stroke:#2e7d32,stroke-width:3px,color:#000
+    classDef zoneDUT fill:#fff3e0,stroke:#e65100,stroke-width:3px,color:#000
+    classDef zoneSupervision fill:#e3f2fd,stroke:#1565c0,stroke-width:3px,color:#000
+    classDef zoneIT fill:#f3e5f5,stroke:#6a1b9a,stroke-width:3px,color:#000
+    classDef domainOT fill:#f1f8f4,stroke:#1b5e20,stroke-width:2px,stroke-dasharray: 5 5
+    classDef domainIT fill:#faf4f9,stroke:#4a148c,stroke-width:2px,stroke-dasharray: 5 5
+    
+    class Z1 zoneControl
+    class Z2 zoneDUT
+    class Z3 zoneSupervision
+    class Z4 zoneIT
+    class DOMINIO_OT domainOT
+    class DOMINIO_IT domainIT
+```
+
+**Legenda del Diagramma:**
+
+- **Domini**: Separazione logica tra Operational Technology (OT) e Information Technology (IT)
+- **Zone (Z1-Z4)**: Raggruppamenti di asset con requisiti di sicurezza comuni
+  - **Z1 (Controllo)**: Zona critica con PLC, HMI, sensori e attuatori
+  - **Z2 (DUT)**: Device Under Test, considerato potenzialmente non trusted
+  - **Z3 (Supervisione)**: Sistema di supervisione e storage dati
+  - **Z4 (IT Enterprise)**: Rete aziendale e backend
+- **Conduits (C1-C4)**: Canali di comunicazione controllati tra zone
+  - **Frecce solide** (↔): Comunicazione bidirezionale controllata
+  - **Frecce tratteggiate** (⋯→): Accesso temporaneo/occasionale
+  - **Croce rossa** (✗): Comunicazione esplicitamente vietata
+- **Simboli di controllo**:
+  - ✓ Controlli di sicurezza implementati
+  - 🔥 Firewall/Gateway di sicurezza
+  - ❌ Divieto esplicito di comunicazione
+
+**Principi applicati:**
+
+1. **Separation of Concerns**: Separazione netta OT/IT e controllo/supervisione
+2. **Default Deny**: Comunicazione Z2↔Z4 esplicitamente vietata
+3. **Least Privilege**: Ogni conduit implementa solo i flussi strettamente necessari
+4. **Defense in Depth**: Controlli multipli su ogni conduit (autenticazione + autorizzazione + logging)
+
 ### 4. Determinazione del Security Level Target
 
 Basato su:
