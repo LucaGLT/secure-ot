@@ -1,0 +1,115 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.5 Chrome/126.0.6478.183 Electron/31.3.0 Safari/537.36" version="24.7.5">
+  <diagram name="Pagina-1" id="f_8Obt9U7Br3wq0pLdqk">
+    <mxGraphModel dx="2471" dy="1035" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="36d7vqpQldXstXzosoop-1" value="ACCESSO ESTERNO" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fillColor=#ffe6cc;strokeColor=#d79b00;opacity=50;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="-396" y="282" width="222" height="129" as="geometry" />
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-2" value="Manutenzione&#xa;Remota" style="whiteSpace=wrap;strokeWidth=2;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="-343" y="321.5" width="116" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-3" value="DOMINIO Information" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fillColor=#e1d5e7;strokeColor=#9673a6;opacity=50;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="-423" y="621" width="265" height="382" as="geometry" />
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-4" value="Z4-IT_Enterprise (UnTrust)" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="-385.5" y="652" width="190" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-5" value="PC&#xa;Reportistica" style="whiteSpace=wrap;strokeWidth=2;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="36d7vqpQldXstXzosoop-4">
+          <mxGeometry x="44.5" y="43" width="101" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-6" value="Rete&#xa;Aziendale" style="whiteSpace=wrap;strokeWidth=2;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="36d7vqpQldXstXzosoop-4">
+          <mxGeometry x="52" y="143" width="86" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-7" value="Backend&#xa;Enterprise" style="whiteSpace=wrap;strokeWidth=2;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="36d7vqpQldXstXzosoop-4">
+          <mxGeometry x="50.5" y="243" width="89" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-8" value="DOMINIO Operational" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;opacity=50;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="20" y="223" width="569" height="805" as="geometry" />
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-9" value="Z1-Controllo (SL:Critical)" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="188.5" y="262" width="184" height="404" as="geometry" />
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-10" value="PLC&#xa;Siemens S7-1200" style="whiteSpace=wrap;strokeWidth=2;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="36d7vqpQldXstXzosoop-9">
+          <mxGeometry x="25" y="43" width="134" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-11" value="HMI/IPC&#xa;Locale" style="whiteSpace=wrap;strokeWidth=2;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="36d7vqpQldXstXzosoop-9">
+          <mxGeometry x="55.5" y="143" width="73" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-12" value="Controller&#xa;Temperatura" style="whiteSpace=wrap;strokeWidth=2;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="36d7vqpQldXstXzosoop-9">
+          <mxGeometry x="38" y="243" width="108" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-13" value="Datalogger" style="whiteSpace=wrap;strokeWidth=2;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="36d7vqpQldXstXzosoop-9">
+          <mxGeometry x="45.5" y="343" width="93" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-14" value="Z2-DuT (UnTrust)" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="55" y="825" width="194" height="136" as="geometry" />
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-15" value="DUT&#xa;Device Under Test&#xa;API Ethernet" style="whiteSpace=wrap;strokeWidth=2;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="36d7vqpQldXstXzosoop-14">
+          <mxGeometry x="33" y="43" width="144" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-16" value="Z3-Superv. (SL:Medium)" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="384" y="783" width="169" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-17" value="IPC/SCADA&#xa;Supervisione" style="whiteSpace=wrap;strokeWidth=2;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="36d7vqpQldXstXzosoop-16">
+          <mxGeometry x="36" y="43" width="105" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-18" value="Repository&#xa;Dati Centrale" style="whiteSpace=wrap;strokeWidth=2;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="36d7vqpQldXstXzosoop-16">
+          <mxGeometry x="33" y="143" width="111" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-19" value="C1: Controllo-DUT&#xa;✓ Auth reciproca&#xa;✓ API whitelist&#xa;✓ Logging" style="curved=1;startArrow=block;endArrow=block;exitX=0.12;exitY=1;entryX=0.5;entryY=0;rounded=0;fontSize=12;startSize=8;endSize=8;fillColor=#f5f5f5;strokeColor=#666666;labelBackgroundColor=none;" edge="1" parent="1" source="36d7vqpQldXstXzosoop-9" target="36d7vqpQldXstXzosoop-14">
+          <mxGeometry x="0.2246" y="-44" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="152" y="725" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-20" value="C2: Controllo-Supervisione&#xa;✓ Integrità dati&#xa;✓ Flusso unidirezionale&#xa;✓ Logging" style="curved=1;startArrow=none;endArrow=block;exitX=0.99;exitY=1;entryX=0.5;entryY=0;rounded=0;fontSize=12;startSize=8;endSize=8;labelBackgroundColor=none;fillColor=#f5f5f5;strokeColor=#666666;entryDx=0;entryDy=0;" edge="1" parent="1" source="36d7vqpQldXstXzosoop-9" target="36d7vqpQldXstXzosoop-16">
+          <mxGeometry x="-0.0119" y="55" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="465" y="713" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-21" value="C3: OT-IT Gateway&#xa;🔥 Firewall industriale&#xa;✓ Auth + Cifratura&#xa;✓ NAT/DMZ&#xa;✓ Traffic monitoring" style="curved=1;startArrow=block;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=1;rounded=0;fontSize=12;startSize=8;endSize=8;fillColor=#f5f5f5;strokeColor=#666666;labelBackgroundColor=none;entryDx=0;entryDy=0;" edge="1" parent="1" source="36d7vqpQldXstXzosoop-16" target="36d7vqpQldXstXzosoop-4">
+          <mxGeometry x="0.0857" y="-63" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="1116" />
+              <mxPoint x="97" y="1152" />
+              <mxPoint x="-127" y="1105" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-22" value="C4: Accesso Manutenzione&#xa;✓ Temporaneo&#xa;✓ MFA&#xa;✓ Audit completo" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0;entryY=0.25;rounded=0;fontSize=12;startSize=8;endSize=8;fillColor=#ffe6cc;strokeColor=#d79b00;labelBackgroundColor=none;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="36d7vqpQldXstXzosoop-2" target="36d7vqpQldXstXzosoop-9">
+          <mxGeometry x="-0.2605" y="25" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-2" y="284" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-23" value="C4: Accesso Manutenzione&#xa;✓ Temporaneo&#xa;✓ MFA&#xa;✓ Audit completo" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=0.581;exitY=0.993;entryX=0;entryY=0.25;rounded=0;fontSize=12;startSize=8;endSize=8;fillColor=#ffe6cc;strokeColor=#d79b00;labelBackgroundColor=none;entryDx=0;entryDy=0;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="36d7vqpQldXstXzosoop-2" target="36d7vqpQldXstXzosoop-16">
+          <mxGeometry x="-0.3593" y="64" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-264" y="484" />
+              <mxPoint x="278" y="740" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="36d7vqpQldXstXzosoop-24" value="❌ VIETATO&#xa;No comunicazione diretta" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=none;exitX=0;exitY=0.5;rounded=0;fontSize=12;startSize=8;endSize=8;fillColor=#f8cecc;strokeColor=#b85450;labelBackgroundColor=none;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="36d7vqpQldXstXzosoop-14" target="36d7vqpQldXstXzosoop-4">
+          <mxGeometry x="0.2461" y="-47" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-39" y="927" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

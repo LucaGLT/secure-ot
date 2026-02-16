@@ -499,8 +499,8 @@ Caratteristiche:
 
 Requisiti SL2 associati: FR1 (autenticazione API), FR3 (integrità comunicazioni), FR5 (controllo flussi verso Z1)
 
-::: {custom-style="b-note"}
-Nota architetturale: Il DUT non deve poter influenzare direttamente la zona di controllo senza attraversare un conduit controllato.
+::: {custom-style="b-important"}
+**Nota architetturale**: Il DUT non deve poter influenzare direttamente la zona di controllo senza attraversare un conduit controllato.
 :::
 
 ####### Zona Z3 – Supervisione / Storage
