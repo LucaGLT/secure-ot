@@ -69,31 +69,36 @@ AS-IS.
 
 #### 3.2 Modello Preliminare di Zone (Concettuale)
 
-Zona Z1 -- Zona di Controllo Base
+Il seguente modello identifica le zone concettuali del sistema, che costituiranno la base per il modello formale Zone & Conduits descritto in dettaglio nella sezione FR5.
 
-- PLC
-- HMI
+##### Zona Z1 -- Zona di Controllo Base
+
+- PLC (Siemens S7-1200)
+- HMI locale
 - Controllore di temperatura
 - Datalogger
 
-Zona Z2 -- Zona DUT
+##### Zona Z2 -- Zona DUT
 
 - Dispositivo DUT
 - Interfaccia Ethernet
 
-Zona Z3 -- Zona Supervisiva Futura (TO-BE)
+##### Zona Z3 -- Zona Supervisiva (TO-BE)
 
 - IPC / SCADA
 - Repository dati centrale
 
-Zona Z4 -- Zona IT Enterprise
+##### Zona Z4 -- Zona IT Enterprise
 
 - PC per reportistica
 - Rete aziendale
 
-I condotti in AS-IS sono principalmente fisici/manuali (USB, SD, cavo Ethernet
-diretto).
-Nessun condotto logico o segmentazione sono formalmente definiti.
+##### Stato attuale dei condotti
+
+I condotti in AS-IS sono principalmente fisici/manuali (USB, SD, cavo Ethernet diretto).
+Nessun condotto logico o segmentazione di rete sono formalmente definiti.
+
+> **Nota:** Il modello formale completo con definizione dettagliata delle zone, dei conduits (C1-C4), delle regole di flusso e dei requisiti di sicurezza è presentato nella sezione **FR5 – Restricted Data Flow**.
 
 ### 4. Determinazione del Security Level Target
 
@@ -257,17 +262,139 @@ SL2 fornisce protezione contro:
 
 ##### Implicazioni Architetturali TO-BE
 
-- **Formalizzazione del modello Zone & Conduits**:
-  - **Z1 (Zona Controllo Base)**: PLC, HMI locale, controller temperatura
-  - **Z2 (Zona DUT)**: Device Under Test isolato
-  - **Z3 (Zona Supervisiva)**: IPC/SCADA, repository dati
-  - **Z4 (Zona IT Enterprise)**: PC reportistica, rete aziendale
-- Separazione fisica o logica (VLAN) tra le zone
-- Introduzione di **firewall industriale** o ACL tra zone
-- Gateway sicuro per accesso remoto (no connessioni dirette dall'esterno)
-- Whitelist delle comunicazioni ammesse tra zone
-- Monitoraggio del traffico anomalo sui condotti
-- Controllo degli accessi ai media rimovibili
+###### Principi di Segmentazione
+
+Il modello Zone & Conduits è costruito secondo i seguenti principi:
+
+- Separazione tra dominio OT e dominio IT
+- Separazione tra funzioni di controllo e funzioni di supervisione
+- Isolamento del DUT (Device Under Test) come entità distinta
+- Controllo esplicito di ogni flusso dati tra domini
+- Assunzione che ogni zona sia non trusted rispetto alle altre
+
+La segmentazione è sia logica (VLAN, firewall, ACL) che fisica dove necessario.
+
+###### Definizione delle Zone
+
+####### Zona Z1 – Controllo
+
+Comprende:
+
+- PLC (Siemens S7-1200)
+- IPC / HMI locale
+- Controllore di temperatura
+- Datalogger
+
+Caratteristiche:
+
+- Funzione critica per l'operatività del sistema
+- Elevato impatto in caso di compromissione
+- Accesso limitato a personale autorizzato
+
+Requisiti SL2 associati: FR1 (autenticazione utenti), FR2 (RBAC), FR3 (integrità software e configurazioni), FR6 (logging eventi critici)
+
+####### Zona Z2 – DUT (Device Under Test)
+
+Comprende:
+
+- Dispositivo oggetto di test
+- API di comunicazione verso il sistema di controllo
+
+Caratteristiche:
+
+- Entità potenzialmente non trusted
+- Superficie di attacco diretta tramite Ethernet
+
+Requisiti SL2 associati: FR1 (autenticazione API), FR3 (integrità comunicazioni), FR5 (controllo flussi verso Z1)
+
+Nota architetturale: Il DUT non deve poter influenzare direttamente la zona di controllo senza attraversare un conduit controllato.
+
+####### Zona Z3 – Supervisione / Storage
+
+Comprende:
+
+- Storage locale / repository dati
+- IPC/SCADA per supervisione
+- Eventuale server di supervisione futuro
+
+Caratteristiche:
+
+- Contiene dati di test aggregati
+- Può interfacciarsi con IT aziendale
+
+Requisiti SL2 associati: FR4 (protezione dati), FR6 (event logging e forwarding), FR5 (segmentazione verso IT)
+
+####### Zona Z4 – IT Enterprise
+
+Comprende:
+
+- Rete aziendale
+- PC per reportistica
+- Backend enterprise
+- Sistemi remoti di manutenzione
+
+Caratteristiche:
+
+- Considerata non trusted rispetto al dominio OT
+- Accesso remoto controllato tramite gateway
+
+Requisiti SL2 associati: FR5 (restricted data flow), FR1 (autenticazione device-server)
+
+###### Definizione dei Conduits
+
+Ogni comunicazione tra zone avviene esclusivamente tramite conduits definiti e controllati.
+
+####### Conduit C1 – Z1 ↔ Z2 (Controllo-DUT)
+
+- Protocollo controllato e autenticato
+- Autenticazione reciproca device-to-device
+- Limitazione delle funzioni API esposte (whitelist)
+- Logging completo delle interazioni
+
+Obiettivo: Impedire che un DUT compromesso possa compromettere la zona di controllo.
+
+####### Conduit C2 – Z1 ↔ Z3 (Controllo-Supervisione)
+
+- Trasferimento controllato dei dati di test
+- Controllo di integrità dei dati (checksum, firma)
+- Logging delle operazioni di trasferimento
+- Flusso unidirezionale preferito (Z1 → Z3)
+
+####### Conduit C3 – Z3 ↔ Z4 (Supervisione-IT)
+
+- Firewall industriale o gateway dedicato
+- Accesso remoto autenticato e cifrato
+- Segmentazione rigida IT/OT
+- Monitoraggio del traffico e detection anomalie
+- NAT per mascheramento indirizzi OT
+
+####### Conduit C4 – Accesso Manutenzione (esterno → Z1/Z3)
+
+- Accesso temporaneo e limitato nel tempo
+- Autenticazione forte (multi-factor dove possibile)
+- Tracciabilità completa delle operazioni
+- Canale dedicato isolato dal traffico operativo
+
+###### Regole Generali sui Flussi
+
+- **Nessuna comunicazione diretta** tra Z2 (DUT) e Z4 (IT)
+- **Nessuna comunicazione non autenticata** tra zone
+- Ogni flusso deve essere **esplicitamente giustificato** e documentato
+- Le porte e servizi non utilizzati devono essere **disabilitati**
+- **Default deny**: tutto ciò che non è esplicitamente permesso è vietato
+- **Monitoraggio continuo** del traffico sui conduits per rilevare anomalie
+
+###### Collegamento con le Foundational Requirements
+
+Il modello Zone & Conduits rappresenta la misura architettonica primaria per:
+
+- **FR5 (Restricted Data Flow)**: segmentazione e controllo dei flussi
+- **FR1 (Authentication)**: autenticazione device-to-device sui conduits
+- **FR2 (Use Control)**: enforcement dei privilegi per zona
+- **FR6 (Event Logging)**: tracciabilità dei flussi tra zone
+- **FR7 (Availability)**: limitazione propagazione di attacchi DoS
+
+La segmentazione riduce la superficie d'attacco e limita la propagazione laterale in caso di compromissione.
 
 #### FR6 -- Timely Response to Events (TRE)
 
