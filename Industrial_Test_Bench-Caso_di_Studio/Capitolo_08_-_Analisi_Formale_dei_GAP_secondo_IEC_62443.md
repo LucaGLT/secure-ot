@@ -21,36 +21,132 @@ IEC 62443.
 
 ### 2. Spiegazione dei Termini Chiave di IEC 62443
 
-Per chiarezza, le seguenti abbreviazioni sono utilizzate in questo report:
+Per chiarezza, le seguenti abbreviazioni e concetti sono utilizzati in questo documento secondo la terminologia IEC 62443.
+
+#### 2.1 Livelli di Sicurezza (Security Levels)
 
 **SL (Security Level)**
-Un livello definito di resistenza contro un profilo di minaccia definito.
+
+Un livello definito di resistenza contro un profilo di minaccia definito. La norma IEC 62443 definisce quattro Security Levels (SL 1-4), ciascuno corrispondente a un profilo di attaccante con crescenti capacità, motivazione e risorse.
 
 **SL-T (Target Security Level)**
-Il Security Level richiesto determinato attraverso un risk assessment (IEC
-62443-3-2).
+
+Il Security Level richiesto per il sistema, determinato attraverso un risk assessment formale secondo IEC 62443-3-2. L'SL-T rappresenta il livello di protezione necessario basato sull'analisi delle minacce, delle vulnerabilità e dell'impatto potenziale.
 
 **SL-A (Achieved or Actual Security Level)**
-Il Security Level attualmente raggiunto dal sistema nella sua configurazione
-AS-IS.
+
+Il Security Level attualmente raggiunto dal sistema nella sua configurazione AS-IS. L'SL-A rappresenta il livello effettivo di protezione implementato, misurato rispetto ai Foundational Requirements.
 
 **SL-C (Capability Security Level)**
-Il Security Level che i componenti del sistema sono in grado di raggiungere quando
-adeguatamente configurati.
+
+Il Security Level che i componenti del sistema sono in grado di raggiungere quando adeguatamente configurati e integrati. L'SL-C rappresenta la capacità intrinseca dei componenti, indipendentemente dalla loro configurazione attuale.
+
+#### 2.2 Foundational Requirements (FR)
 
 **FR (Foundational Requirement)**
-Una delle sette categorie di requisiti di sicurezza di alto livello definite in
-IEC 62443-3-3.
+
+Una delle sette categorie di requisiti di sicurezza di alto livello definite in IEC 62443-3-3. Ogni FR rappresenta un obiettivo di sicurezza fondamentale che deve essere soddisfatto per raggiungere un determinato Security Level.
 
 Le sette categorie FR sono:
 
-- FR1 -- Identification and Authentication Control (IAC)
-- FR2 -- Use Control (UC)
-- FR3 -- System Integrity (SI)
-- FR4 -- Data Confidentiality (DC)
-- FR5 -- Restricted Data Flow (RDF)
-- FR6 -- Timely Response to Events (TRE)
-- FR7 -- Resource Availability (RA)
+- **FR1** -- Identification and Authentication Control (IAC)
+- **FR2** -- Use Control (UC)
+- **FR3** -- System Integrity (SI)
+- **FR4** -- Data Confidentiality (DC)
+- **FR5** -- Restricted Data Flow (RDF)
+- **FR6** -- Timely Response to Events (TRE)
+- **FR7** -- Resource Availability (RA)
+
+#### 2.3 Zone e Conduits (IEC 62443-3-2)
+
+La norma IEC 62443-3-2 introduce il modello **Zone & Conduits** come approccio fondamentale per la segmentazione e il controllo dei flussi di comunicazione nei sistemi di automazione e controllo industriale (IACS).
+
+##### 2.3.1 Definizione di Zona
+
+**Zona (Zone)**
+
+Secondo IEC 62443-3-2, una **zona** è definita come:
+
+> *"Un raggruppamento di asset logici o fisici che condividono requisiti di sicurezza comuni"*
+
+Caratteristiche di una zona:
+
+- **Omogeneità dei requisiti**: tutti gli asset in una zona hanno lo stesso Security Level Target
+- **Perimetro definito**: confini chiari che separano la zona da altre zone e dall'esterno
+- **Controllo degli accessi**: tutti i flussi di comunicazione in ingresso/uscita sono controllati
+- **Policy di sicurezza comune**: regole uniformi applicate a tutti gli elementi della zona
+
+Principi di definizione delle zone:
+
+- Funzionalità comune (es. controllo, supervisione, dati)
+- Livello di criticità equivalente
+- Requisiti di disponibilità, integrità e confidenzialità simili
+- Appartenenza allo stesso dominio operativo (OT) o informativo (IT)
+
+##### 2.3.2 Definizione di Conduit
+
+**Conduit (Condotto)**
+
+Secondo IEC 62443-3-2, un **conduit** è definito come:
+
+> *"Un canale di comunicazione logico tra due o più zone che è monitorato e controllato"*
+
+Caratteristiche di un conduit:
+
+- **Controllo esplicito**: ogni conduit implementa policy di sicurezza specifiche
+- **Monitoraggio**: il traffico sul conduit è ispezionato e registrato
+- **Autenticazione**: verifica dell'identità delle entità comunicanti
+- **Autorizzazione**: controllo delle operazioni permesse attraverso il conduit
+- **Integrità**: protezione contro manipolazione dei dati in transito
+- **Confidenzialità**: protezione dei dati sensibili tramite cifratura (dove richiesto)
+
+Tipi di conduit comuni:
+
+- **Firewall industriale**: filtraggio stateful o deep packet inspection
+- **Data diode**: comunicazione unidirezionale fisica
+- **VPN/Tunnel cifrato**: protezione dei dati su reti non trusted
+- **Gateway protocollo**: traduzione e controllo tra protocolli diversi
+
+##### 2.3.3 Principi di Segmentazione secondo la Norma
+
+La norma IEC 62443-3-2 stabilisce i seguenti principi guida per la segmentazione:
+
+**1. Defense in Depth**
+
+Implementare controlli multipli e stratificati. La compromissione di un singolo controllo non deve compromettere l'intero sistema.
+
+**2. Least Privilege**
+
+Ogni zona e ogni conduit deve garantire solo il minimo accesso necessario per le funzioni operative legittime.
+
+**3. Separation of Concerns**
+
+Separare funzionalmente e logicamente:
+
+- Domini OT (Operational Technology) da domini IT (Information Technology)
+- Funzioni di controllo da funzioni di supervisione
+- Sistemi critici da sistemi non critici
+- Entità trusted da entità non trusted
+
+**4. Explicit Deny (Default Deny)**
+
+Tutto ciò che non è esplicitamente permesso deve essere vietato. La politica predefinita è il rifiuto dell'accesso.
+
+**5. Monitoraggio e Visibilità**
+
+Ogni flusso di comunicazione tra zone deve essere monitorabile e tracciabile per supportare detection e response.
+
+**6. Scalabilità e Manutenibilità**
+
+Il modello deve essere documentato, comprensibile e gestibile nel ciclo di vita del sistema.
+
+##### 2.3.4 Benefici del Modello Zone & Conduits
+
+- **Riduzione della superficie d'attacco**: limitazione dei punti di ingresso
+- **Contenimento**: limitazione della propagazione laterale in caso di compromissione
+- **Tracciabilità**: visibilità sui flussi di comunicazione critici
+- **Compliance**: facilita la dimostrazione di conformità ai requisiti normativi
+- **Resilienza**: isolamento dei guasti e degli attacchi in zone specifiche
 
 ### 3. Definizione del Sistema (IEC 62443-3-2)
 
@@ -98,7 +194,9 @@ Il seguente modello identifica le zone concettuali del sistema, che costituirann
 I condotti in AS-IS sono principalmente fisici/manuali (USB, SD, cavo Ethernet diretto).
 Nessun condotto logico o segmentazione di rete sono formalmente definiti.
 
-> **Nota:** Il modello formale completo con definizione dettagliata delle zone, dei conduits (C1-C4), delle regole di flusso e dei requisiti di sicurezza è presentato nella sezione **FR5 – Restricted Data Flow**.
+::: {custom-style="b-note"}
+**Nota:** Il modello formale completo con definizione dettagliata delle zone, dei conduits (C1-C4), delle regole di flusso e dei requisiti di sicurezza è presentato nella sezione **FR5 – Restricted Data Flow**.
+:::
 
 ### 4. Determinazione del Security Level Target
 
@@ -307,7 +405,9 @@ Caratteristiche:
 
 Requisiti SL2 associati: FR1 (autenticazione API), FR3 (integrità comunicazioni), FR5 (controllo flussi verso Z1)
 
+::: {custom-style="b-note"}
 Nota architetturale: Il DUT non deve poter influenzare direttamente la zona di controllo senza attraversare un conduit controllato.
+:::
 
 ####### Zona Z3 – Supervisione / Storage
 

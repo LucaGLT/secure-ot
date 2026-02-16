@@ -83,8 +83,10 @@ Requisiti SL2 associati:
 * FR3 (integrità comunicazioni)
 * FR5 (controllo flussi verso Z1)
 
+::: {custom-style="b-note"}
 Nota architetturale:
 Il DUT non deve poter influenzare direttamente la zona di controllo senza attraversare un conduit controllato.
+:::
 
 ## 3.3 Zona Z3 – Supervisione / Storage
 
