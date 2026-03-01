@@ -64,7 +64,7 @@ Would your architecture remain secure without external validation evidence?
 
 ------------------------------------------------------------------------
 
-## Week 4 -- From Patch to Principle
+## Week 4 -- Stima della reworking
 
 ### Premessa
 
@@ -73,7 +73,7 @@ Da questo dipende il prezzo al cliente.
 
 Stimo la fase di progettazione, lo sviluppo. la fase di test execution e anche la fase di rilavorazione post test.
 
-### Dmanda
+### Domanda
 
 MA quanto deve essere stimata la rilavorazione rispetto allo sviluppo?
 
@@ -98,11 +98,53 @@ Come convinci il tuo cliente di questa tua certezza?
 
 ------------------------------------------------------------------------
 
-## Week 5 -- Why IEC 62443 Exists
+## Week 5 -- Why IEC 62443 Exists 
+
+### Domanda
+
+Perché avevamo bisogno della IEC 62443 in ambito Embedded Operation Technology?
 
 ### Metaphor
 
-A dedicated forge built for a specific type of steel.
+Progettare il sistema di sicurezza di un museo non è la stessa cosa che progettare il sistema di sicurezza di una diga.
+
+Prima di chiedersi come proteggere, bisogna porsi due domande preliminari:
+
+> Cosa si sta proteggendo?
+> Cosa succede se la protezione fallisce?
+
+In un museo, un fallimento significa perdita di valore.
+In una diga, un fallimento significa perdita di controllo.
+
+I metodi vengono dopo.
+L'architettura inizia qui.
+
+Ora poniamoci questa domanda:  
+Con così tanta letteratura scientifica e buone pratiche già disponibili nella Cybersecurity in ambito IT, avevamo davvero bisogno di un nuovo standard come IEC 62443 per i sistemi embedded in Operational Technology?
+
+Approfodisci con questo articolo:
+LINK
+
+---
+
+Designing the security system of a museum
+is not the same as designing the security system of a dam.
+
+Before asking how to protect,
+you must ask two prior questions:
+
+What are you protecting?
+What happens if protection fails?
+
+In a museum, failure means loss of value.
+In a dam, failure means loss of control.
+
+Methods come later.
+Architecture starts here.
+
+With so much scientific literature and best practice already available in IT cybersecurity, did we really need a new standard like IEC 62443 for embedded systems in Operational Technology?
+
+Learn more with this article: LINK
 
 ### Concept
 
