@@ -22,6 +22,8 @@ Early architectural decisions define trust boundaries and attack surface.
 
 If final security validations disappeared tomorrow,how much resilience would remain in your architecture?
 
+[x] Done
+
 ------------------------------------------------------------------------
 
 ## Week 2 -- Security Is Forged, Not Tested
@@ -42,29 +44,11 @@ Secure design must be embedded in lifecycle decisions, not deferred to testing.
 
 Is resilience forged by design --- or certified at the end?
 
-------------------------------------------------------------------------
-
-## Week 3 -- Security as an Architectural Property
-
-### Metaphor
-
-Foundations before walls in a building.
-
-### Concept
-
-Security is a structural attribute of system architecture.
-
-### Application
-
-Define trust boundaries and threat models before implementation.
-
-### Call-to-Action
-
-Would your architecture remain secure without external validation evidence?
+[x] Scheduled
 
 ------------------------------------------------------------------------
 
-## Week 4 -- Stima della reworking
+## Week 3 -- Stima della reworking
 
 ### Premessa
 
@@ -92,13 +76,15 @@ Ci hai mai pensato?
 Il CLiente ti potrebbe chiedere: sei certo che il 90% dei test passeranno?
 Come convinci il tuo cliente di questa tua certezza?
 
+[x] Scheduled
+
 ------------------------------------------------------------------------
 
 # Transition to IEC 62443 Journey
 
 ------------------------------------------------------------------------
 
-## Week 5 -- Why IEC 62443 Exists 
+## Week 4+5 -- Why IEC 62443 Exists
 
 ### Domanda
 
@@ -108,43 +94,50 @@ Perché avevamo bisogno della IEC 62443 in ambito Embedded Operation Technology?
 
 Progettare il sistema di sicurezza di un museo non è la stessa cosa che progettare il sistema di sicurezza di una diga.
 
-Prima di chiedersi come proteggere, bisogna porsi due domande preliminari:
+Prima ancora di chiederti come proteggere, dovresti porti due domande fondamentali:
 
-> Cosa si sta proteggendo?
-> Cosa succede se la protezione fallisce?
+Che cosa stai proteggendo?
+Che cosa succede se la protezione fallisce?
 
-In un museo, un fallimento significa perdita di valore.
-In una diga, un fallimento significa perdita di controllo.
+In un museo, un fallimento significa la perdita di opere irripetibili, secoli di creatività umana, identità culturale, memoria collettiva che possono essere danneggiati o sottratti.
 
-I metodi vengono dopo.
-L'architettura inizia qui.
+In una diga, un fallimento significa la perdita di controllo su un sistema che accumula e rilascia energia sottoforma di masse d'acqua, rischiando impatti a catena, danni fisici e potenziali rischi per le persone.
 
-Ora poniamoci questa domanda:  
-Con così tanta letteratura scientifica e buone pratiche già disponibili nella Cybersecurity in ambito IT, avevamo davvero bisogno di un nuovo standard come IEC 62443 per i sistemi embedded in Operational Technology?
+Entrambi richiedono sicurezza, ma la natura del rischio è diversa.
 
-Approfodisci con questo articolo:
-LINK
+E quando cambia la natura di ciò che proteggi, cambia anche l’architettura della protezione.
 
----
+Potremmo chiederci: Con così tanta letteratura e best practice già disponibili nella Cybersecurity IT, avevamo davvero bisogno di una nuova norma come la IEC 62443 per i sistemi embedded in ambito Operational Technology?
 
-Designing the security system of a museum
-is not the same as designing the security system of a dam.
+Approfodisci con questo articolo: LINK
 
-Before asking how to protect,
-you must ask two prior questions:
+-----
+
+What are you protecting?
+
+Designing the security system of a museum is not the same as designing the security system of a dam.
+
+Before asking how to protect, you should ask two fundamental questions:
 
 What are you protecting?
 What happens if protection fails?
 
-In a museum, failure means loss of value.
-In a dam, failure means loss of control.
+In a museum, failure means the loss of irreplaceable works of art, centuries of human creativity, cultural identity, and collective memory that can be damaged or stolen.
 
-Methods come later.
-Architecture starts here.
+In a dam, failure means the loss of control over a system that stores and releases energy in the form of massive bodies of water, risking cascading effects, physical damage, and potential harm to people.
 
-With so much scientific literature and best practice already available in IT cybersecurity, did we really need a new standard like IEC 62443 for embedded systems in Operational Technology?
+Both require security. But the nature of the risk is different.
 
-Learn more with this article: LINK
+And when the nature of what you protect changes, the architecture of protection must change as well.
+
+With so much literature and best practice already available in IT cybersecurity, did we really need a new standard like IEC 62443 for embedded systems in Operational Technology?
+
+Explore the full discussion in this article: LINK
+
+[x] Draft del post
+[ ] Scrivere Articolo (vedi file Post\Post05-perché una norma in più.md )
+[ ] Pubblicare Articolo
+[ ] Mettere link Articolo su post e Schedule
 
 ### Concept
 
