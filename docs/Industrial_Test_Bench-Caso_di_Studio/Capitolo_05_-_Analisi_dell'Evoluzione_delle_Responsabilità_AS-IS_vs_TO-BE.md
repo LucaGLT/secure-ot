@@ -1,3 +1,9 @@
+---
+title: "Industrial Test Bench - Caso di Studio"
+author: "Gianluca TATA"
+last_updated: "2026-03-05"
+---
+
 ## Analisi dell'Evoluzione delle Responsabilità AS-IS vs TO-BE
 
 ### Focus sull'Evoluzione delle Responsabilità dell'Operatore

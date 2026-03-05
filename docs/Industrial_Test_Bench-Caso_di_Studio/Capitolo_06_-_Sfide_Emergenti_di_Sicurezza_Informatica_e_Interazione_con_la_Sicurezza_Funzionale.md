@@ -1,3 +1,9 @@
+---
+title: "Industrial Test Bench - Caso di Studio"
+author: "Gianluca TATA"
+last_updated: "2026-03-05"
+---
+
 ## Sfide Emergenti di Sicurezza Informatica e Interazione con la Sicurezza Funzionale
 
 ### Interpretazione in Relazione alla Sicurezza Funzionale

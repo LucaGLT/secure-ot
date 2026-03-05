@@ -1,3 +1,9 @@
+---
+title: "Industrial Test Bench - Caso di Studio"
+author: "Gianluca TATA"
+last_updated: "2026-03-05"
+---
+
 ## Descrizione Interfacce e Flussi di Dati AS-IS
 
 ### 1. Scopo

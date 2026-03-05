@@ -1,3 +1,9 @@
+---
+title: "Industrial Test Bench - Caso di Studio"
+author: "Gianluca TATA"
+last_updated: "2026-03-05"
+---
+
 # Industrial Test Bench - Caso di Studio
 
 ## Panoramica
