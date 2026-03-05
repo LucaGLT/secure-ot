@@ -4,7 +4,7 @@
 
 ### 1. Introduzione
 
-Questo documento analizza la transizione dal sistema di test attuale (AS-IS) coordinato manualmente alla futura piattaforma (TO-BE) automatizzata e supervisionata da remoto.
+Questo capitolo analizza la transizione dal sistema di test attuale (AS-IS) coordinato manualmente alla futura piattaforma (TO-BE) automatizzata e supervisionata da remoto.
 
 Particolare attenzione è dedicata all'evoluzione delle responsabilità dell'Operatore e alla ridistribuzione della responsabilità tra Umano, Sistema e Logica di Sicurezza.
 

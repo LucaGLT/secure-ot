@@ -1,8 +1,8 @@
 ## Analisi Formale dei GAP secondo IEC 62443
 
-### 1. Scopo del Documento
+### 1. Scopo del Capitolo
 
-Questo documento fornisce un'analisi formale dei GAP dell'architettura attuale AS-IS
+Questo capitolo fornisce un'analisi formale dei GAP dell'architettura attuale AS-IS
 del test bench industriale rispetto ai requisiti dello standard IEC
 62443.
 
@@ -16,12 +16,12 @@ L'obiettivo è:
 - Evidenziare i controlli programmatici mancanti (IEC 62443-2-1)
 - Identificare i gap a livello di componente (IEC 62443-4-2)
 
-Questo report è strutturato in allineamento con la metodologia di assessment
+Questo capitolo è strutturato in allineamento con la metodologia di assessment
 IEC 62443.
 
 ### 2. Spiegazione dei Termini Chiave di IEC 62443
 
-Per chiarezza, le seguenti abbreviazioni e concetti sono utilizzati in questo documento secondo la terminologia IEC 62443.
+Per chiarezza, le seguenti abbreviazioni e concetti sono utilizzati in questo capitolo secondo la terminologia IEC 62443.
 
 #### 2.1 Livelli di Sicurezza (Security Levels)
 
@@ -749,7 +749,7 @@ Per raggiungere la conformità **SL-T = 2** secondo IEC 62443, l'architettura TO
 
 #### 9.3 Tracciabilità dei Requisiti
 
-Tutti i requisiti architetturali identificati in questo documento devono essere tracciabili verso:
+Tutti i requisiti architetturali identificati in questo capitolo devono essere tracciabili verso:
 
 - **Upstream**: Foundational Requirements IEC 62443-3-3 e GAP identificati
 - **Downstream**: Decisioni progettuali nel documento "Cybersecurity Architecture Definition"
