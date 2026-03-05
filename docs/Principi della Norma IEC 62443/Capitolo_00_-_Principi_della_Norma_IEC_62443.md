@@ -174,4 +174,3 @@ Contenuti principali:
 - Roadmap di remediation
 - Verifica e certificazione
 - Continuous improvement
-

@@ -163,7 +163,7 @@ Il modello deve essere documentato, comprensibile e gestibile nel ciclo di vita 
 - Controllore di temperatura (stand-alone)
 - Datalogger stand-alone
 - DUT (Device Under Test) con capacità API Ethernet
-- Catena relè di sicurezza (non rilevante dal punto di vista cyber ma critica per la sicurezza)
+- Catena relè di sicurezza (non rilevante dal punto di vista security ma critica per la safety)
 - Postazione operatore (creazione report offline)
 
 Non esiste un'architettura di rete OT formalmente definita nella configurazione
