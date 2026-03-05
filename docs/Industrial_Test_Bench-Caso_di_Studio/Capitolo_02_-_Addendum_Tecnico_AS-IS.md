@@ -1,10 +1,16 @@
+---
+title: "Industrial Test Bench - Caso di Studio"
+author: "Gianluca TATA"
+last_updated: "2026-03-05"
+---
+
 ## Addendum Tecnico AS-IS
 
 ### Descrizione Dettagliata dell'Architettura Tecnica
 
-### 1. Scopo di questo Addendum
+### 1. Scopo del Capitolo
 
-Questo documento fornisce una descrizione tecnica più approfondita dell'architettura attuale (AS-IS) del test bench.
+Questo capitolo fornisce una descrizione tecnica più approfondita dell'architettura attuale (AS-IS) del test bench.
 
 Completa la descrizione principale del sistema AS-IS fornendo dettagli su:
 

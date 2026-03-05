@@ -1,3 +1,9 @@
+---
+title: "Industrial Test Bench - Caso di Studio"
+author: "Gianluca TATA"
+last_updated: "2026-03-05"
+---
+
 ## Sfide Emergenti di Sicurezza Informatica e Interazione con la Sicurezza Funzionale
 
 ### Interpretazione in Relazione alla Sicurezza Funzionale
@@ -8,7 +14,7 @@ La transizione da un sistema isolato e coordinato manualmente a una piattaforma 
 
 Mentre l'automazione aumenta la ripetibilità e riduce la variabilità operativa umana, la connettività introduce rischi cyber sistemici che possono influenzare direttamente o indirettamente la sicurezza funzionale.
 
-Questo documento analizza le problematiche emergenti di sicurezza informatica e la loro interazione con i requisiti di sicurezza.
+Questo capitolo analizza le problematiche emergenti di sicurezza informatica e la loro interazione con i requisiti di sicurezza.
 
 ### 2. Cambio nella Natura del Rischio
 
