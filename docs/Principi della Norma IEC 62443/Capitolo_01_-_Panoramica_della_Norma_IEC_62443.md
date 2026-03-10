@@ -1,7 +1,7 @@
 ---
 title: "Principi della Norma IEC 62443"
 author: "Gianluca TATA"
-last_updated: "2026-03-05"
+last_updated: "2026-03-10"
 ---
 
 ## Panoramica della Norma IEC 62443
