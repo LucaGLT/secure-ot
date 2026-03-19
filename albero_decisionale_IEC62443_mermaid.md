@@ -6,7 +6,7 @@ Di seguito trovi il diagramma Mermaid con la ramificazione dei nodi decisionali 
 flowchart TD
     N1{"Il sistema interagisce con macchine, sensori, attuatori o processi fisici?"}
 
-    N2{"Il sistema gestisce solo dati in lettura senza influenzare poter direttamente processi fisici?"}
+    N2{"Il sistema gestisce solo dati in lettura senza poter influenzare direttamente processi fisici?"}
     
     IT1["Conclusione: Dominio IT<br/>La IEC 62443 non è il riferimento principale."]
     
@@ -53,9 +53,9 @@ flowchart TD
     N6 -- "No, solo configurazioni sicure e coerenti" --> ITOT1
     N6 -- "Sì, potrebbe inserire configurazioni non coerenti, anche non sicure" --> N8
 
-    N7 -- "No, può essere connessa ad altra rete, come rete di laboratorio, WiFi o VPN " --> OT3
-    N7 -- "Sì, fisicamente isolata, senza WiFi" --> OT4
-
+    N7 -- "Sì, fisicamente isolata, senza WiFi" --> OT3
+    N7 -- "No, può essere connessa ad altra rete, come rete di laboratorio, WiFi o VPN " --> OT4
+    
     N8 -- "Sì" --> OT2
     N8 -- "No" --> N9
 
@@ -199,7 +199,6 @@ La IEC 62443 è particolarmente rilevante quando il cyber rischio può trasforma
 - rischio safety
 - rischio economico.
 
-
 ### Domanda 5
 
 **Chi può accedere al sistema (localmente o da remoto)?**
@@ -332,8 +331,6 @@ Maggiore è l’interconnessione, maggiore è il bisogno di:
 - monitoraggio.
 
 Tutti elementi centrali nella IEC 62443.
-
-
 
 ### Interpretazione delle conclusioni dell'albero
 
