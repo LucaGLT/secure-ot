@@ -9,13 +9,19 @@ Ma non lasciatevi ingannare dal *"non ho dati rilevanti da proteggere, non gesti
 
 Ecco: questo è proprio l'approccio sbagliato.
 
+> **Ambito della IEC 62443**
+>
+> La IEC 62443 si applica ai sistemi **IACS** (*Industrial Automation and Control Systems*), cioè all'insieme di componenti hardware, software, reti, persone e procedure che monitorano o controllano processi fisici industriali.
+>
+> **Criterio pratico di inclusione**: se un sistema può influenzare, direttamente o indirettamente, il comportamento operativo del processo fisico (comandi, configurazioni, logiche di controllo, disponibilità o integrità dei dati di processo), allora rientra nel perimetro IEC 62443.
+
 La domanda di base va scomposta in poche domande puntuali che chiariscono il problema e il campo di applicazione della normativa sulla sicurezza informatica in ambito Operational Technology e di automazione industriale.
 
 Eccole.
 
 **1. Il sistema interagisce con macchine, sensori, attuatori o processi fisici?**
 
-- **NO**: avete risolto il problema: siamo in puro Dominio IT, pertanto la IEC 62443 non è il riferimento normativo principale.
+- **NO**: avete risolto il problema: siamo in puro dominio IT, pertanto la IEC 62443 non è il riferimento normativo principale.
 - **Sì**: occorre indagare con le prossime domande.
 
 **2. Il sistema gestisce solo dati in lettura senza influenzare direttamente i processi fisici?**
@@ -26,10 +32,10 @@ Eccole.
   - alterare il processo che genera i dati di misura,
   - configurare il sistema,
   - bypassare controlli di sicurezza o coerenza dei dati,
-  - **rendere effettiva alcuna modifica operativa del processo, neanche involontariamente né per errori incontrolalti del sistema**.
+  - **rendere effettiva alcuna modifica operativa del processo, neanche involontariamente né per errori incontrollati del sistema**.
 - **No**: è possibile fare configurazioni o addirittura inviare comandi; allora occorre indagare ulteriormente con le prossime domande.
 
-**3. Una modifica o un errore nel sistema potrebbe fermare il processo o produrre risultati fisici errati o avere impatto sulla safety?**
+**3. Una modifica o un errore nel sistema potrebbe fermare il processo, produrre risultati fisici errati o avere un impatto sulla safety?**
 
 - **No**: in questo caso il sistema può interagire con il processo anche in modifica, ma non in modo così invasivo da produrre risultati potenzialmente errati, arrestare il processo o alterare la safety del processo stesso: sei in presenza di un sistema ibrido IT/OT leggero; consiglio di considerare la IEC 62443 come riferimento, pur mantenendo un Security Level basso.
 - **Sì**: ci potrebbero essere impatti sull'operatività o sulla safety: rispondi anche alle prossime domande.
@@ -63,3 +69,15 @@ La connessione a reti esterne aumenta enormemente:
 
 - **Sì**: fisicamente isolata, senza Wi-Fi: OT localmente connesso; la IEC 62443 è comunque altamente consigliata, soprattutto se hai risposto Sì alla domanda numero 3, ma puoi usare livelli di sicurezza bassi.
 - **No**: il sistema può in effetti essere connesso ad altre reti, come rete di laboratorio o VPN, o può essere connesso via Wi-Fi: OT esternamente connesso, IEC 62443 fortemente raccomandata.
+
+## Checklist operativa (5 passi)
+
+Una volta capito che la IEC 62443 è rilevante per il tuo sistema, segui questi passaggi per applicarla già in fase di progettazione:
+
+1. **Definisci il perimetro IACS**: elenca asset, funzioni, interfacce e confini tra dominio IT e dominio OT.
+2. **Mappa Zone e Conduit**: segmenta l'architettura in aree omogenee e identifica tutti i canali di comunicazione.
+3. **Valuta i rischi e imposta gli obiettivi di sicurezza**: stima impatti e minacce per ogni zona/conduit e definisci il Security Level target.
+4. **Traduci gli obiettivi in requisiti tecnici e organizzativi**: controlli di accesso, hardening, gestione patch, monitoraggio, logging e procedure operative.
+5. **Pianifica implementazione e verifica**: roadmap a priorità, test di efficacia, riesame periodico e miglioramento continuo.
+
+Approfondiremo questi punti nei prossimi articoli.
