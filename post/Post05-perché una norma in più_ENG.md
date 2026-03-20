@@ -26,7 +26,7 @@ In the IT world, we have built decades of experience around:
 * vulnerability management
 * continuous monitoring
 
-These principles are also valid in OT. **But the operating context is radically different**.
+These principles are also valid in OT. But the operating context is radically different.
 
 It is true: critical systems also exist in IT (banks, e-commerce, cloud infrastructure). But those systems are natively designed with:
 

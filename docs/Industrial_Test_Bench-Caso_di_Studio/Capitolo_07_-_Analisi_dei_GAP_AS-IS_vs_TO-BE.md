@@ -1,8 +1,14 @@
+---
+title: "Industrial Test Bench - Caso di Studio"
+author: "Gianluca TATA"
+last_updated: "2026-03-05"
+---
+
 ## Analisi dei GAP AS-IS vs TO-BE
 
 ### 1. Scopo
 
-Questo documento definisce l'analisi strutturata dei GAP tra la configurazione attuale AS-IS e l'architettura desiderata TO-BE del sistema di test bench industriale.
+Questo capitolo definisce l'analisi strutturata dei GAP tra la configurazione attuale AS-IS e l'architettura desiderata TO-BE del sistema di test bench industriale.
 
 L'obiettivo è:
 
@@ -12,7 +18,7 @@ L'obiettivo è:
 - Scomporre in micro-passi tecnici
 - Riferire gli standard di Sicurezza e Sicurezza Informatica applicabili
 
-Questo documento serve come baseline decisionale e di pianificazione architettonica.
+Questo capitolo serve come baseline decisionale e di pianificazione architettonica.
 
 ### 2. Aree di Intervento e Obiettivi Macro
 
