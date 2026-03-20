@@ -1,8 +1,14 @@
+---
+title: "Industrial Test Bench - Caso di Studio"
+author: "Gianluca TATA"
+last_updated: "2026-03-05"
+---
+
 ## Descrizione Interfacce e Flussi di Dati AS-IS
 
 ### 1. Scopo
 
-Questo documento mappa le **interfacce** e i **flussi di dati** dell'architettura attuale (AS-IS) del test bench industriale, includendo:
+Questo capitolo mappa le **interfacce** e i **flussi di dati** dell'architettura attuale (AS-IS) del test bench industriale, includendo:
 
 - Interfacce di controllo (segnali e percorsi di comando)
 - Percorsi di misurazione

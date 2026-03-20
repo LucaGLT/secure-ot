@@ -44,7 +44,7 @@ Secure design must be embedded in lifecycle decisions, not deferred to testing.
 
 Is resilience forged by design --- or certified at the end?
 
-[x] Scheduled
+[x] Done
 
 ------------------------------------------------------------------------
 
@@ -76,7 +76,7 @@ Ci hai mai pensato?
 Il CLiente ti potrebbe chiedere: sei certo che il 90% dei test passeranno?
 Come convinci il tuo cliente di questa tua certezza?
 
-[x] Scheduled
+[x] Done
 
 ------------------------------------------------------------------------
 
@@ -135,9 +135,9 @@ With so much literature and best practice already available in IT cybersecurity,
 Explore the full discussion in this article: LINK
 
 [x] Draft del post
-[ ] Scrivere Articolo (vedi file Post\Post05-perché una norma in più.md )
-[ ] Pubblicare Articolo
-[ ] Mettere link Articolo su post e Schedule
+[x] Scrivere Articolo (vedi file Post\Post05-perché una norma in più.md ) -> Done
+[x] Pubblicare Articolo -> Done
+[x] Mettere link Articolo su post e Schedule -> Done
 
 ### Concept
 
