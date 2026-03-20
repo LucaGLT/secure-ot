@@ -12,8 +12,6 @@ Ecco: questo è proprio l'approccio sbagliato.
 > **Ambito della IEC 62443**
 >
 > La IEC 62443 si applica ai sistemi **IACS** (*Industrial Automation and Control Systems*), cioè all'insieme di componenti hardware, software, reti, persone e procedure che monitorano o controllano processi fisici industriali.
->
-> **Criterio pratico di inclusione**: se un sistema può influenzare, direttamente o indirettamente, il comportamento operativo del processo fisico (comandi, configurazioni, logiche di controllo, disponibilità o integrità dei dati di processo), allora rientra nel perimetro IEC 62443.
 
 La domanda di base va scomposta in poche domande puntuali che chiariscono il problema e il campo di applicazione della normativa sulla sicurezza informatica in ambito Operational Technology e di automazione industriale.
 
@@ -70,6 +68,9 @@ La connessione a reti esterne aumenta enormemente:
 - **Sì**: fisicamente isolata, senza Wi-Fi: OT localmente connesso; la IEC 62443 è comunque altamente consigliata, soprattutto se hai risposto Sì alla domanda numero 3, ma puoi usare livelli di sicurezza bassi.
 - **No**: il sistema può in effetti essere connesso ad altre reti, come rete di laboratorio o VPN, o può essere connesso via Wi-Fi: OT esternamente connesso, IEC 62443 fortemente raccomandata.
 
+> **Criterio pratico di inclusione**: 
+> se un sistema può influenzare, direttamente o indirettamente, il comportamento operativo del processo fisico (comandi, configurazioni, logiche di controllo, disponibilità o integrità dei dati di processo), allora rientra nel perimetro IEC 62443.
+
 ## Checklist operativa (5 passi)
 
 Una volta capito che la IEC 62443 è rilevante per il tuo sistema, segui questi passaggi per applicarla già in fase di progettazione:
@@ -81,3 +82,97 @@ Una volta capito che la IEC 62443 è rilevante per il tuo sistema, segui questi 
 5. **Pianifica implementazione e verifica**: roadmap a priorità, test di efficacia, riesame periodico e miglioramento continuo.
 
 Approfondiremo questi punti nei prossimi articoli.
+
+
+----
+
+
+Stesso articolo in Inglese :
+
+# When Should I Apply IEC 62443 to My System?
+
+I am designing or modernizing an automation system for my production processes, laboratory control and supervision, and process data management: but in my case, **does IEC 62443 apply**?
+
+That is the question.
+
+The answer is simpler than it may seem.
+But do not be misled by: *"I don't have relevant data to protect, I don't manage customer records, so I don't need any cybersecurity."*
+
+That is exactly the wrong approach.
+
+> **Scope of IEC 62443**
+>
+> IEC 62443 applies to **IACS** (*Industrial Automation and Control Systems*), meaning the set of hardware components, software, networks, people, and procedures that monitor or control industrial physical processes.
+
+
+
+The core question should be broken down into a few targeted questions that clarify the issue and the scope of this information security standard in Operational Technology and industrial automation.
+
+Here they are.
+
+**1. Does the system interact with machines, sensors, actuators, or physical processes?**
+
+- **NO**: problem solved: this is purely an IT domain, so IEC 62443 is not the main normative reference.
+- **Yes**: continue with the next questions.
+
+**2. Does the system manage read-only data without directly influencing physical processes?**
+
+- **Yes**: in this case, data from the operational field is output-only (read-only), and there is no way to influence physical process operations; this is still purely an IT domain, so IEC 62443 is not the main normative reference. However, this implies that the system **cannot**:
+  - issue commands to the process,
+  - alter measurement data,
+  - alter the process that generates measurement data,
+  - configure the system,
+  - bypass security controls or data consistency checks,
+  - **make any operational modification to the process effective, not even unintentionally or due to uncontrolled system errors**.
+- **No**: configurations or even commands are possible; therefore, proceed with the next questions.
+
+**3. Could a change or an error in the system stop the process, produce incorrect physical results, or impact safety?**
+
+- **No**: in this case, the system may interact with the process (including modifications), but not in a way invasive enough to generate potentially incorrect results, stop the process, or alter process safety: you are dealing with a light IT/OT hybrid system; I recommend considering IEC 62443 as a reference while keeping a low Security Level.
+- **Yes**: there may be impacts on operations or safety; answer the next questions as well.
+
+**4. Can the system be modified locally by connecting directly to the control device?**
+
+- **Yes**: this introduces the issue of **direct local access**: many industrial systems can be modified by connecting a laptop, Ethernet cable, serial port, or USB port; this type of access allows one to:
+  - change PLC logic,
+  - modify configurations,
+  - alter safety parameters.
+This is therefore an attack surface **even without a network**: for this reason, IEC 62443 is relevant **even for isolated systems**.
+
+- **No**: there is no direct access to settings; issues may only derive from abnormal conditions: continue with the next questions.
+
+**5. Can the system be reached from other networks or remote access paths?**
+
+- **Yes**: this introduces the risk of **remote attack**:
+  - corporate network,
+  - VPN,
+  - remote maintenance access,
+  - data gateways.
+Connection to external networks significantly increases:
+  - attack surface,
+  - likelihood of compromise,
+  - security complexity.
+It is therefore necessary to properly compartmentalize the system so that a compromise in one software component cannot reach the layer that actually controls the process: refer to IEC 62443, which will guide your ***Zone*** and ***Conduit*** design with appropriate security levels.
+
+- **No**: in theory, it cannot be reached from outside, but proceed with the next question.
+
+**6. Is the system interconnected only through a protected and isolated local network?**
+
+- **Yes**: physically isolated, with no Wi-Fi: locally connected OT; IEC 62443 is still highly recommended, especially if you answered Yes to question 3, but you can use low security levels.
+- **No**: the system may in fact be connected to other networks, such as a lab network or VPN, or may be connected via Wi-Fi: externally connected OT, IEC 62443 is strongly recommended.
+
+> **Practical inclusion criterion**:
+> if a system can influence, directly or indirectly, the operational behavior of a physical process (commands, configurations, control logic, availability or integrity of process data), then it falls within the IEC 62443 scope.
+
+## Operational Checklist (5 steps)
+
+Once you understand that IEC 62443 is relevant to your system, follow these steps to apply it already during the design phase:
+
+1. **Define the IACS scope**: list assets, functions, interfaces, and boundaries between IT and OT domains.
+2. **Map Zones and Conduits**: segment the architecture into homogeneous areas and identify all communication channels.
+3. **Assess risks and set security objectives**: estimate impacts and threats for each zone/conduit and define the target Security Level.
+4. **Translate objectives into technical and organizational requirements**: access controls, hardening, patch management, monitoring, logging, and operating procedures.
+5. **Plan implementation and verification**: priority-based roadmap, effectiveness testing, periodic review, and continuous improvement.
+
+We will dive deeper into these points in upcoming articles.
+
